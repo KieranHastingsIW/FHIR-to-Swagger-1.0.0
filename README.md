@@ -23,16 +23,7 @@ Execute the following command (from the root Directory) to link the tool with sh
 ```shell
 npm link
 ```
-
-and use the following command pattern to execute the tool
-
-```shell
-fhir-to-swagger [Resource_Name] [--combine] --output [Output_Directory]
-```
-
-for example:
-
-1. Execute the following command to generate the swagger definition for `Coverage` resource. This will generate the swagger definition inside the current working directory
+1. Execute the following command to generate the swagger definition for `Patient` resource. This will generate the swagger definition inside the generated-def folder
 
     ```shell
     fhir-to-swagger Patient --output ./generated-def
