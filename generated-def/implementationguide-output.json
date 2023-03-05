@@ -1,0 +1,2696 @@
+{
+    "swagger": "2.0",
+    "definitions": {
+        "ImplementationGuide": {
+            "description": "A set of rules of how a particular interoperability or standards problem is solved - typically through the use of FHIR resources. This resource is used to gather all the parts of an implementation guide into a logical whole and to publish a computable definition of all the parts.",
+            "properties": {
+                "resourceType": {
+                    "description": "This is a ImplementationGuide resource",
+                    "type": "string"
+                },
+                "id": {
+                    "description": "The logical id of the resource, as used in the URL for the resource. Once assigned, this value never changes.",
+                    "$ref": "#/definitions/id"
+                },
+                "meta": {
+                    "description": "The metadata about the resource. This is content that is maintained by the infrastructure. Changes to the content might not always be associated with version changes to the resource.",
+                    "$ref": "#/definitions/Meta"
+                },
+                "implicitRules": {
+                    "description": "A reference to a set of rules that were followed when the resource was constructed, and which must be understood when processing the content. Often, this is a reference to an implementation guide that defines the special rules along with other profiles etc.",
+                    "$ref": "#/definitions/uri"
+                },
+                "language": {
+                    "description": "The base language in which the resource is written.",
+                    "$ref": "#/definitions/code"
+                },
+                "text": {
+                    "description": "A human-readable narrative that contains a summary of the resource and can be used to represent the content of the resource to a human. The narrative need not encode all the structured data, but is required to contain sufficient detail to make it \"clinically safe\" for a human to just read the narrative. Resource definitions may define what content should be represented in the narrative to ensure clinical safety.",
+                    "$ref": "#/definitions/Narrative"
+                },
+                "extension": {
+                    "description": "May be used to represent additional information that is not part of the basic definition of the resource. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.",
+                    "items": {
+                        "$ref": "#/definitions/Extension"
+                    },
+                    "type": "array"
+                },
+                "modifierExtension": {
+                    "description": "May be used to represent additional information that is not part of the basic definition of the resource and that modifies the understanding of the element that contains it and/or the understanding of the containing element's descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.\n\nModifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).",
+                    "items": {
+                        "$ref": "#/definitions/Extension"
+                    },
+                    "type": "array"
+                },
+                "url": {
+                    "description": "An absolute URI that is used to identify this implementation guide when it is referenced in a specification, model, design or an instance; also called its canonical identifier. This SHOULD be globally unique and SHOULD be a literal address at which at which an authoritative instance of this implementation guide is (or will be) published. This URL can be the target of a canonical reference. It SHALL remain the same when the implementation guide is stored on different servers.",
+                    "$ref": "#/definitions/uri"
+                },
+                "version": {
+                    "description": "The identifier that is used to identify this version of the implementation guide when it is referenced in a specification, model, design or instance. This is an arbitrary value managed by the implementation guide author and is not expected to be globally unique. For example, it might be a timestamp (e.g. yyyymmdd) if a managed version is not available. There is also no expectation that versions can be placed in a lexicographical sequence.",
+                    "$ref": "#/definitions/string"
+                },
+                "name": {
+                    "description": "A natural language name identifying the implementation guide. This name should be usable as an identifier for the module by machine processing applications such as code generation.",
+                    "$ref": "#/definitions/string"
+                },
+                "title": {
+                    "description": "A short, descriptive, user-friendly title for the implementation guide.",
+                    "$ref": "#/definitions/string"
+                },
+                "status": {
+                    "description": "The status of this implementation guide. Enables tracking the life-cycle of the content.",
+                    "enum": [
+                        "draft",
+                        "active",
+                        "retired",
+                        "unknown"
+                    ]
+                },
+                "experimental": {
+                    "description": "A Boolean value to indicate that this implementation guide is authored for testing purposes (or education/evaluation/marketing) and is not intended to be used for genuine usage.",
+                    "$ref": "#/definitions/boolean"
+                },
+                "date": {
+                    "description": "The date  (and optionally time) when the implementation guide was published. The date must change when the business version changes and it must change if the status code changes. In addition, it should change when the substantive content of the implementation guide changes.",
+                    "$ref": "#/definitions/dateTime"
+                },
+                "publisher": {
+                    "description": "The name of the organization or individual that published the implementation guide.",
+                    "$ref": "#/definitions/string"
+                },
+                "contact": {
+                    "description": "Contact details to assist a user in finding and communicating with the publisher.",
+                    "items": {
+                        "$ref": "#/definitions/ContactDetail"
+                    },
+                    "type": "array"
+                },
+                "description": {
+                    "description": "A free text natural language description of the implementation guide from a consumer's perspective.",
+                    "$ref": "#/definitions/markdown"
+                },
+                "useContext": {
+                    "description": "The content was developed with a focus and intent of supporting the contexts that are listed. These contexts may be general categories (gender, age, ...) or may be references to specific programs (insurance plans, studies, ...) and may be used to assist with indexing and searching for appropriate implementation guide instances.",
+                    "items": {
+                        "$ref": "#/definitions/UsageContext"
+                    },
+                    "type": "array"
+                },
+                "jurisdiction": {
+                    "description": "A legal or geographic region in which the implementation guide is intended to be used.",
+                    "items": {
+                        "$ref": "#/definitions/CodeableConcept"
+                    },
+                    "type": "array"
+                },
+                "copyright": {
+                    "description": "A copyright statement relating to the implementation guide and/or its contents. Copyright statements are generally legal restrictions on the use and publishing of the implementation guide.",
+                    "$ref": "#/definitions/markdown"
+                },
+                "packageId": {
+                    "description": "The NPM package name for this Implementation Guide, used in the NPM package distribution, which is the primary mechanism by which FHIR based tooling manages IG dependencies. This value must be globally unique, and should be assigned with care.",
+                    "$ref": "#/definitions/id"
+                },
+                "license": {
+                    "description": "The license that applies to this Implementation Guide, using an SPDX license code, or 'not-open-source'.",
+                    "enum": [
+                        "not-open-source",
+                        "0BSD",
+                        "AAL",
+                        "Abstyles",
+                        "Adobe-2006",
+                        "Adobe-Glyph",
+                        "ADSL",
+                        "AFL-1.1",
+                        "AFL-1.2",
+                        "AFL-2.0",
+                        "AFL-2.1",
+                        "AFL-3.0",
+                        "Afmparse",
+                        "AGPL-1.0-only",
+                        "AGPL-1.0-or-later",
+                        "AGPL-3.0-only",
+                        "AGPL-3.0-or-later",
+                        "Aladdin",
+                        "AMDPLPA",
+                        "AML",
+                        "AMPAS",
+                        "ANTLR-PD",
+                        "Apache-1.0",
+                        "Apache-1.1",
+                        "Apache-2.0",
+                        "APAFML",
+                        "APL-1.0",
+                        "APSL-1.0",
+                        "APSL-1.1",
+                        "APSL-1.2",
+                        "APSL-2.0",
+                        "Artistic-1.0-cl8",
+                        "Artistic-1.0-Perl",
+                        "Artistic-1.0",
+                        "Artistic-2.0",
+                        "Bahyph",
+                        "Barr",
+                        "Beerware",
+                        "BitTorrent-1.0",
+                        "BitTorrent-1.1",
+                        "Borceux",
+                        "BSD-1-Clause",
+                        "BSD-2-Clause-FreeBSD",
+                        "BSD-2-Clause-NetBSD",
+                        "BSD-2-Clause-Patent",
+                        "BSD-2-Clause",
+                        "BSD-3-Clause-Attribution",
+                        "BSD-3-Clause-Clear",
+                        "BSD-3-Clause-LBNL",
+                        "BSD-3-Clause-No-Nuclear-License-2014",
+                        "BSD-3-Clause-No-Nuclear-License",
+                        "BSD-3-Clause-No-Nuclear-Warranty",
+                        "BSD-3-Clause",
+                        "BSD-4-Clause-UC",
+                        "BSD-4-Clause",
+                        "BSD-Protection",
+                        "BSD-Source-Code",
+                        "BSL-1.0",
+                        "bzip2-1.0.5",
+                        "bzip2-1.0.6",
+                        "Caldera",
+                        "CATOSL-1.1",
+                        "CC-BY-1.0",
+                        "CC-BY-2.0",
+                        "CC-BY-2.5",
+                        "CC-BY-3.0",
+                        "CC-BY-4.0",
+                        "CC-BY-NC-1.0",
+                        "CC-BY-NC-2.0",
+                        "CC-BY-NC-2.5",
+                        "CC-BY-NC-3.0",
+                        "CC-BY-NC-4.0",
+                        "CC-BY-NC-ND-1.0",
+                        "CC-BY-NC-ND-2.0",
+                        "CC-BY-NC-ND-2.5",
+                        "CC-BY-NC-ND-3.0",
+                        "CC-BY-NC-ND-4.0",
+                        "CC-BY-NC-SA-1.0",
+                        "CC-BY-NC-SA-2.0",
+                        "CC-BY-NC-SA-2.5",
+                        "CC-BY-NC-SA-3.0",
+                        "CC-BY-NC-SA-4.0",
+                        "CC-BY-ND-1.0",
+                        "CC-BY-ND-2.0",
+                        "CC-BY-ND-2.5",
+                        "CC-BY-ND-3.0",
+                        "CC-BY-ND-4.0",
+                        "CC-BY-SA-1.0",
+                        "CC-BY-SA-2.0",
+                        "CC-BY-SA-2.5",
+                        "CC-BY-SA-3.0",
+                        "CC-BY-SA-4.0",
+                        "CC0-1.0",
+                        "CDDL-1.0",
+                        "CDDL-1.1",
+                        "CDLA-Permissive-1.0",
+                        "CDLA-Sharing-1.0",
+                        "CECILL-1.0",
+                        "CECILL-1.1",
+                        "CECILL-2.0",
+                        "CECILL-2.1",
+                        "CECILL-B",
+                        "CECILL-C",
+                        "ClArtistic",
+                        "CNRI-Jython",
+                        "CNRI-Python-GPL-Compatible",
+                        "CNRI-Python",
+                        "Condor-1.1",
+                        "CPAL-1.0",
+                        "CPL-1.0",
+                        "CPOL-1.02",
+                        "Crossword",
+                        "CrystalStacker",
+                        "CUA-OPL-1.0",
+                        "Cube",
+                        "curl",
+                        "D-FSL-1.0",
+                        "diffmark",
+                        "DOC",
+                        "Dotseqn",
+                        "DSDP",
+                        "dvipdfm",
+                        "ECL-1.0",
+                        "ECL-2.0",
+                        "EFL-1.0",
+                        "EFL-2.0",
+                        "eGenix",
+                        "Entessa",
+                        "EPL-1.0",
+                        "EPL-2.0",
+                        "ErlPL-1.1",
+                        "EUDatagrid",
+                        "EUPL-1.0",
+                        "EUPL-1.1",
+                        "EUPL-1.2",
+                        "Eurosym",
+                        "Fair",
+                        "Frameworx-1.0",
+                        "FreeImage",
+                        "FSFAP",
+                        "FSFUL",
+                        "FSFULLR",
+                        "FTL",
+                        "GFDL-1.1-only",
+                        "GFDL-1.1-or-later",
+                        "GFDL-1.2-only",
+                        "GFDL-1.2-or-later",
+                        "GFDL-1.3-only",
+                        "GFDL-1.3-or-later",
+                        "Giftware",
+                        "GL2PS",
+                        "Glide",
+                        "Glulxe",
+                        "gnuplot",
+                        "GPL-1.0-only",
+                        "GPL-1.0-or-later",
+                        "GPL-2.0-only",
+                        "GPL-2.0-or-later",
+                        "GPL-3.0-only",
+                        "GPL-3.0-or-later",
+                        "gSOAP-1.3b",
+                        "HaskellReport",
+                        "HPND",
+                        "IBM-pibs",
+                        "ICU",
+                        "IJG",
+                        "ImageMagick",
+                        "iMatix",
+                        "Imlib2",
+                        "Info-ZIP",
+                        "Intel-ACPI",
+                        "Intel",
+                        "Interbase-1.0",
+                        "IPA",
+                        "IPL-1.0",
+                        "ISC",
+                        "JasPer-2.0",
+                        "JSON",
+                        "LAL-1.2",
+                        "LAL-1.3",
+                        "Latex2e",
+                        "Leptonica",
+                        "LGPL-2.0-only",
+                        "LGPL-2.0-or-later",
+                        "LGPL-2.1-only",
+                        "LGPL-2.1-or-later",
+                        "LGPL-3.0-only",
+                        "LGPL-3.0-or-later",
+                        "LGPLLR",
+                        "Libpng",
+                        "libtiff",
+                        "LiLiQ-P-1.1",
+                        "LiLiQ-R-1.1",
+                        "LiLiQ-Rplus-1.1",
+                        "Linux-OpenIB",
+                        "LPL-1.0",
+                        "LPL-1.02",
+                        "LPPL-1.0",
+                        "LPPL-1.1",
+                        "LPPL-1.2",
+                        "LPPL-1.3a",
+                        "LPPL-1.3c",
+                        "MakeIndex",
+                        "MirOS",
+                        "MIT-0",
+                        "MIT-advertising",
+                        "MIT-CMU",
+                        "MIT-enna",
+                        "MIT-feh",
+                        "MIT",
+                        "MITNFA",
+                        "Motosoto",
+                        "mpich2",
+                        "MPL-1.0",
+                        "MPL-1.1",
+                        "MPL-2.0-no-copyleft-exception",
+                        "MPL-2.0",
+                        "MS-PL",
+                        "MS-RL",
+                        "MTLL",
+                        "Multics",
+                        "Mup",
+                        "NASA-1.3",
+                        "Naumen",
+                        "NBPL-1.0",
+                        "NCSA",
+                        "Net-SNMP",
+                        "NetCDF",
+                        "Newsletr",
+                        "NGPL",
+                        "NLOD-1.0",
+                        "NLPL",
+                        "Nokia",
+                        "NOSL",
+                        "Noweb",
+                        "NPL-1.0",
+                        "NPL-1.1",
+                        "NPOSL-3.0",
+                        "NRL",
+                        "NTP",
+                        "OCCT-PL",
+                        "OCLC-2.0",
+                        "ODbL-1.0",
+                        "OFL-1.0",
+                        "OFL-1.1",
+                        "OGTSL",
+                        "OLDAP-1.1",
+                        "OLDAP-1.2",
+                        "OLDAP-1.3",
+                        "OLDAP-1.4",
+                        "OLDAP-2.0.1",
+                        "OLDAP-2.0",
+                        "OLDAP-2.1",
+                        "OLDAP-2.2.1",
+                        "OLDAP-2.2.2",
+                        "OLDAP-2.2",
+                        "OLDAP-2.3",
+                        "OLDAP-2.4",
+                        "OLDAP-2.5",
+                        "OLDAP-2.6",
+                        "OLDAP-2.7",
+                        "OLDAP-2.8",
+                        "OML",
+                        "OpenSSL",
+                        "OPL-1.0",
+                        "OSET-PL-2.1",
+                        "OSL-1.0",
+                        "OSL-1.1",
+                        "OSL-2.0",
+                        "OSL-2.1",
+                        "OSL-3.0",
+                        "PDDL-1.0",
+                        "PHP-3.0",
+                        "PHP-3.01",
+                        "Plexus",
+                        "PostgreSQL",
+                        "psfrag",
+                        "psutils",
+                        "Python-2.0",
+                        "Qhull",
+                        "QPL-1.0",
+                        "Rdisc",
+                        "RHeCos-1.1",
+                        "RPL-1.1",
+                        "RPL-1.5",
+                        "RPSL-1.0",
+                        "RSA-MD",
+                        "RSCPL",
+                        "Ruby",
+                        "SAX-PD",
+                        "Saxpath",
+                        "SCEA",
+                        "Sendmail",
+                        "SGI-B-1.0",
+                        "SGI-B-1.1",
+                        "SGI-B-2.0",
+                        "SimPL-2.0",
+                        "SISSL-1.2",
+                        "SISSL",
+                        "Sleepycat",
+                        "SMLNJ",
+                        "SMPPL",
+                        "SNIA",
+                        "Spencer-86",
+                        "Spencer-94",
+                        "Spencer-99",
+                        "SPL-1.0",
+                        "SugarCRM-1.1.3",
+                        "SWL",
+                        "TCL",
+                        "TCP-wrappers",
+                        "TMate",
+                        "TORQUE-1.1",
+                        "TOSL",
+                        "Unicode-DFS-2015",
+                        "Unicode-DFS-2016",
+                        "Unicode-TOU",
+                        "Unlicense",
+                        "UPL-1.0",
+                        "Vim",
+                        "VOSTROM",
+                        "VSL-1.0",
+                        "W3C-19980720",
+                        "W3C-20150513",
+                        "W3C",
+                        "Watcom-1.0",
+                        "Wsuipa",
+                        "WTFPL",
+                        "X11",
+                        "Xerox",
+                        "XFree86-1.1",
+                        "xinetd",
+                        "Xnet",
+                        "xpp",
+                        "XSkat",
+                        "YPL-1.0",
+                        "YPL-1.1",
+                        "Zed",
+                        "Zend-2.0",
+                        "Zimbra-1.3",
+                        "Zimbra-1.4",
+                        "zlib-acknowledgement",
+                        "Zlib",
+                        "ZPL-1.1",
+                        "ZPL-2.0",
+                        "ZPL-2.1"
+                    ]
+                },
+                "fhirVersion": {
+                    "description": "The version(s) of the FHIR specification that this ImplementationGuide targets - e.g. describes how to use. The value of this element is the formal version of the specification, without the revision number, e.g. [publication].[major].[minor], which is 4.0.0. for this version.",
+                    "items": {
+                        "enum": [
+                            "0.01",
+                            "0.05",
+                            "0.06",
+                            "0.11",
+                            "0.0.80",
+                            "0.0.81",
+                            "0.0.82",
+                            "0.4.0",
+                            "0.5.0",
+                            "1.0.0",
+                            "1.0.1",
+                            "1.0.2",
+                            "1.1.0",
+                            "1.4.0",
+                            "1.6.0",
+                            "1.8.0",
+                            "3.0.0",
+                            "3.0.1",
+                            "3.3.0",
+                            "3.5.0",
+                            "4.0.0"
+                        ]
+                    },
+                    "type": "array"
+                },
+                "dependsOn": {
+                    "description": "Another implementation guide that this implementation depends on. Typically, an implementation guide uses value sets, profiles etc.defined in other implementation guides.",
+                    "items": {
+                        "$ref": "#/definitions/ImplementationGuide_DependsOn"
+                    },
+                    "type": "array"
+                },
+                "global": {
+                    "description": "A set of profiles that all resources covered by this implementation guide must conform to.",
+                    "items": {
+                        "$ref": "#/definitions/ImplementationGuide_Global"
+                    },
+                    "type": "array"
+                },
+                "definition": {
+                    "description": "The information needed by an IG publisher tool to publish the whole implementation guide.",
+                    "$ref": "#/definitions/ImplementationGuide_Definition"
+                },
+                "manifest": {
+                    "description": "Information about an assembled implementation guide, created by the publication tooling.",
+                    "$ref": "#/definitions/ImplementationGuide_Manifest"
+                }
+            },
+            "additionalProperties": false,
+            "required": [
+                "resourceType"
+            ]
+        },
+        "id": {
+            "pattern": "^[A-Za-z0-9\\-\\.]{1,64}$",
+            "type": "string",
+            "description": "Any combination of letters, numerals, \"-\" and \".\", with a length limit of 64 characters.  (This might be an integer, an unprefixed OID, UUID or any other identifier pattern that meets these constraints.)  Ids are case-insensitive."
+        },
+        "Meta": {
+            "description": "The metadata about a resource. This is content in the resource that is maintained by the infrastructure. Changes to the content might not always be associated with version changes to the resource.",
+            "properties": {
+                "id": {
+                    "description": "Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.",
+                    "$ref": "#/definitions/string"
+                },
+                "extension": {
+                    "description": "May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.",
+                    "items": {
+                        "$ref": "#/definitions/Extension"
+                    },
+                    "type": "array"
+                },
+                "versionId": {
+                    "description": "The version specific identifier, as it appears in the version portion of the URL. This value changes when the resource is created, updated, or deleted.",
+                    "$ref": "#/definitions/id"
+                },
+                "lastUpdated": {
+                    "description": "When the resource last changed - e.g. when the version changed.",
+                    "$ref": "#/definitions/instant"
+                },
+                "source": {
+                    "description": "A uri that identifies the source system of the resource. This provides a minimal amount of [[[Provenance]]] information that can be used to track or differentiate the source of information in the resource. The source may identify another FHIR server, document, message, database, etc.",
+                    "$ref": "#/definitions/uri"
+                },
+                "profile": {
+                    "description": "A list of profiles (references to [[[StructureDefinition]]] resources) that this resource claims to conform to. The URL is a reference to [[[StructureDefinition.url]]].",
+                    "items": {
+                        "$ref": "#/definitions/canonical"
+                    },
+                    "type": "array"
+                },
+                "security": {
+                    "description": "Security labels applied to this resource. These tags connect specific resources to the overall security policy and infrastructure.",
+                    "items": {
+                        "$ref": "#/definitions/Coding"
+                    },
+                    "type": "array"
+                },
+                "tag": {
+                    "description": "Tags applied to this resource. Tags are intended to be used to identify and relate resources to process and workflow, and applications are not required to consider the tags when interpreting the meaning of a resource.",
+                    "items": {
+                        "$ref": "#/definitions/Coding"
+                    },
+                    "type": "array"
+                }
+            },
+            "additionalProperties": false
+        },
+        "uri": {
+            "pattern": "^\\S*$",
+            "type": "string",
+            "description": "String of characters used to identify a name or a resource"
+        },
+        "code": {
+            "pattern": "^[^\\s]+(\\s[^\\s]+)*$",
+            "type": "string",
+            "description": "A string which has at least one character and no leading or trailing whitespace and where there is no whitespace other than single spaces in the contents"
+        },
+        "Narrative": {
+            "description": "A human-readable summary of the resource conveying the essential clinical and business information for the resource.",
+            "properties": {
+                "id": {
+                    "description": "Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.",
+                    "$ref": "#/definitions/string"
+                },
+                "extension": {
+                    "description": "May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.",
+                    "items": {
+                        "$ref": "#/definitions/Extension"
+                    },
+                    "type": "array"
+                },
+                "status": {
+                    "description": "The status of the narrative - whether it's entirely generated (from just the defined data or the extensions too), or whether a human authored it and it may contain additional data.",
+                    "enum": [
+                        "generated",
+                        "extensions",
+                        "additional",
+                        "empty"
+                    ]
+                },
+                "div": {
+                    "description": "The actual narrative content, a stripped down version of XHTML.",
+                    "$ref": "#/definitions/xhtml"
+                }
+            },
+            "additionalProperties": false,
+            "required": [
+                "div"
+            ]
+        },
+        "Extension": {
+            "description": "Optional Extension Element - found in all resources.",
+            "properties": {
+                "id": {
+                    "description": "Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.",
+                    "$ref": "#/definitions/string"
+                },
+                "extension": {
+                    "description": "May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.",
+                    "items": {
+                        "$ref": "#/definitions/Extension"
+                    },
+                    "type": "array"
+                },
+                "url": {
+                    "description": "Source of the definition for the extension code - a logical name or a URL.",
+                    "$ref": "#/definitions/uri"
+                },
+                "valueBase64Binary": {
+                    "description": "Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).",
+                    "pattern": "^(\\s*([0-9a-zA-Z\\+/=]){4}\\s*)+$",
+                    "type": "string"
+                },
+                "valueBoolean": {
+                    "description": "Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).",
+                    "pattern": "^true|false$",
+                    "type": "boolean"
+                },
+                "valueCanonical": {
+                    "description": "Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).",
+                    "pattern": "^\\S*$",
+                    "type": "string"
+                },
+                "valueCode": {
+                    "description": "Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).",
+                    "pattern": "^[^\\s]+(\\s[^\\s]+)*$",
+                    "type": "string"
+                },
+                "valueDate": {
+                    "description": "Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).",
+                    "pattern": "^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1]))?)?$",
+                    "type": "string"
+                },
+                "valueDateTime": {
+                    "description": "Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).",
+                    "pattern": "^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\\.[0-9]+)?(Z|(\\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?$",
+                    "type": "string"
+                },
+                "valueDecimal": {
+                    "description": "Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).",
+                    "pattern": "^-?(0|[1-9][0-9]*)(\\.[0-9]+)?([eE][+-]?[0-9]+)?$",
+                    "type": "number"
+                },
+                "valueId": {
+                    "description": "Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).",
+                    "pattern": "^[A-Za-z0-9\\-\\.]{1,64}$",
+                    "type": "string"
+                },
+                "valueInstant": {
+                    "description": "Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).",
+                    "pattern": "^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\\.[0-9]+)?(Z|(\\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00))$",
+                    "type": "string"
+                },
+                "valueInteger": {
+                    "description": "Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).",
+                    "pattern": "^-?([0]|([1-9][0-9]*))$",
+                    "type": "number"
+                },
+                "valueMarkdown": {
+                    "description": "Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).",
+                    "pattern": "^[ \\r\\n\\t\\S]+$",
+                    "type": "string"
+                },
+                "valueOid": {
+                    "description": "Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).",
+                    "pattern": "^urn:oid:[0-2](\\.(0|[1-9][0-9]*))+$",
+                    "type": "string"
+                },
+                "valuePositiveInt": {
+                    "description": "Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).",
+                    "pattern": "^[1-9][0-9]*$",
+                    "type": "number"
+                },
+                "valueString": {
+                    "description": "Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).",
+                    "pattern": "^[ \\r\\n\\t\\S]+$",
+                    "type": "string"
+                },
+                "valueTime": {
+                    "description": "Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).",
+                    "pattern": "^([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\\.[0-9]+)?$",
+                    "type": "string"
+                },
+                "valueUnsignedInt": {
+                    "description": "Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).",
+                    "pattern": "^[0]|([1-9][0-9]*)$",
+                    "type": "number"
+                },
+                "valueUri": {
+                    "description": "Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).",
+                    "pattern": "^\\S*$",
+                    "type": "string"
+                },
+                "valueUrl": {
+                    "description": "Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).",
+                    "pattern": "^\\S*$",
+                    "type": "string"
+                },
+                "valueUuid": {
+                    "description": "Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).",
+                    "pattern": "^urn:uuid:[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$",
+                    "type": "string"
+                },
+                "valueAddress": {
+                    "description": "Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).",
+                    "type": "string"
+                },
+                "valueAge": {
+                    "description": "Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).",
+                    "type": "string"
+                },
+                "valueAnnotation": {
+                    "description": "Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).",
+                    "type": "string"
+                },
+                "valueAttachment": {
+                    "description": "Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).",
+                    "type": "string"
+                },
+                "valueCodeableConcept": {
+                    "description": "Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).",
+                    "$ref": "#/definitions/CodeableConcept"
+                },
+                "valueCoding": {
+                    "description": "Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).",
+                    "$ref": "#/definitions/Coding"
+                },
+                "valueContactPoint": {
+                    "description": "Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).",
+                    "type": "string"
+                },
+                "valueCount": {
+                    "description": "Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).",
+                    "type": "string"
+                },
+                "valueDistance": {
+                    "description": "Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).",
+                    "type": "string"
+                },
+                "valueDuration": {
+                    "description": "Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).",
+                    "type": "string"
+                },
+                "valueHumanName": {
+                    "description": "Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).",
+                    "type": "string"
+                },
+                "valueIdentifier": {
+                    "description": "Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).",
+                    "type": "string"
+                },
+                "valueMoney": {
+                    "description": "Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).",
+                    "type": "string"
+                },
+                "valuePeriod": {
+                    "description": "Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).",
+                    "type": "string"
+                },
+                "valueQuantity": {
+                    "description": "Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).",
+                    "type": "string"
+                },
+                "valueRange": {
+                    "description": "Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).",
+                    "type": "string"
+                },
+                "valueRatio": {
+                    "description": "Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).",
+                    "type": "string"
+                },
+                "valueReference": {
+                    "description": "Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).",
+                    "type": "string"
+                },
+                "valueSampledData": {
+                    "description": "Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).",
+                    "type": "string"
+                },
+                "valueSignature": {
+                    "description": "Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).",
+                    "type": "string"
+                },
+                "valueTiming": {
+                    "description": "Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).",
+                    "type": "string"
+                },
+                "valueContactDetail": {
+                    "description": "Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).",
+                    "$ref": "#/definitions/ContactDetail"
+                },
+                "valueContributor": {
+                    "description": "Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).",
+                    "type": "string"
+                },
+                "valueDataRequirement": {
+                    "description": "Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).",
+                    "type": "string"
+                },
+                "valueExpression": {
+                    "description": "Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).",
+                    "type": "string"
+                },
+                "valueParameterDefinition": {
+                    "description": "Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).",
+                    "type": "string"
+                },
+                "valueRelatedArtifact": {
+                    "description": "Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).",
+                    "type": "string"
+                },
+                "valueTriggerDefinition": {
+                    "description": "Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).",
+                    "type": "string"
+                },
+                "valueUsageContext": {
+                    "description": "Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).",
+                    "$ref": "#/definitions/UsageContext"
+                },
+                "valueDosage": {
+                    "description": "Value of extension - must be one of a constrained set of the data types (see [Extensibility](extensibility.html) for a list).",
+                    "type": "string"
+                }
+            },
+            "additionalProperties": false
+        },
+        "string": {
+            "pattern": "^[ \\r\\n\\t\\S]+$",
+            "type": "string",
+            "description": "A sequence of Unicode characters"
+        },
+        "boolean": {
+            "pattern": "^true|false$",
+            "type": "boolean",
+            "description": "Value of \"true\" or \"false\""
+        },
+        "dateTime": {
+            "pattern": "^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\\.[0-9]+)?(Z|(\\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?$",
+            "type": "string",
+            "description": "A date, date-time or partial date (e.g. just year or year + month).  If hours and minutes are specified, a time zone SHALL be populated. The format is a union of the schema types gYear, gYearMonth, date and dateTime. Seconds must be provided due to schema type constraints but may be zero-filled and may be ignored.                 Dates SHALL be valid dates."
+        },
+        "ContactDetail": {
+            "description": "Specifies contact information for a person or organization.",
+            "properties": {
+                "id": {
+                    "description": "Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.",
+                    "$ref": "#/definitions/string"
+                },
+                "extension": {
+                    "description": "May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.",
+                    "items": {
+                        "$ref": "#/definitions/Extension"
+                    },
+                    "type": "array"
+                },
+                "name": {
+                    "description": "The name of an individual to contact.",
+                    "$ref": "#/definitions/string"
+                },
+                "telecom": {
+                    "description": "The contact details for the individual (if a name was provided) or the organization.",
+                    "items": {
+                        "$ref": "#/definitions/ContactPoint"
+                    },
+                    "type": "array"
+                }
+            },
+            "additionalProperties": false
+        },
+        "markdown": {
+            "pattern": "^[ \\r\\n\\t\\S]+$",
+            "type": "string",
+            "description": "A string that may contain Github Flavored Markdown syntax for optional processing by a mark down presentation engine"
+        },
+        "UsageContext": {
+            "description": "Specifies clinical/business/etc. metadata that can be used to retrieve, index and/or categorize an artifact. This metadata can either be specific to the applicable population (e.g., age category, DRG) or the specific context of care (e.g., venue, care setting, provider of care).",
+            "properties": {
+                "id": {
+                    "description": "Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.",
+                    "$ref": "#/definitions/string"
+                },
+                "extension": {
+                    "description": "May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.",
+                    "items": {
+                        "$ref": "#/definitions/Extension"
+                    },
+                    "type": "array"
+                },
+                "code": {
+                    "description": "A code that identifies the type of context being specified by this usage context.",
+                    "$ref": "#/definitions/Coding"
+                },
+                "valueCodeableConcept": {
+                    "description": "A value that defines the context specified in this context of use. The interpretation of the value is defined by the code.",
+                    "$ref": "#/definitions/CodeableConcept"
+                },
+                "valueQuantity": {
+                    "description": "A value that defines the context specified in this context of use. The interpretation of the value is defined by the code.",
+                    "$ref": "#/definitions/Quantity"
+                },
+                "valueRange": {
+                    "description": "A value that defines the context specified in this context of use. The interpretation of the value is defined by the code.",
+                    "$ref": "#/definitions/Range"
+                },
+                "valueReference": {
+                    "description": "A value that defines the context specified in this context of use. The interpretation of the value is defined by the code.",
+                    "$ref": "#/definitions/Reference"
+                }
+            },
+            "additionalProperties": false,
+            "required": [
+                "code"
+            ]
+        },
+        "CodeableConcept": {
+            "description": "A concept that may be defined by a formal reference to a terminology or ontology or may be provided by text.",
+            "properties": {
+                "id": {
+                    "description": "Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.",
+                    "$ref": "#/definitions/string"
+                },
+                "extension": {
+                    "description": "May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.",
+                    "items": {
+                        "$ref": "#/definitions/Extension"
+                    },
+                    "type": "array"
+                },
+                "coding": {
+                    "description": "A reference to a code defined by a terminology system.",
+                    "items": {
+                        "$ref": "#/definitions/Coding"
+                    },
+                    "type": "array"
+                },
+                "text": {
+                    "description": "A human language representation of the concept as seen/selected/uttered by the user who entered the data and/or which represents the intended meaning of the user.",
+                    "$ref": "#/definitions/string"
+                }
+            },
+            "additionalProperties": false
+        },
+        "ImplementationGuide_DependsOn": {
+            "description": "A set of rules of how a particular interoperability or standards problem is solved - typically through the use of FHIR resources. This resource is used to gather all the parts of an implementation guide into a logical whole and to publish a computable definition of all the parts.",
+            "properties": {
+                "id": {
+                    "description": "Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.",
+                    "$ref": "#/definitions/string"
+                },
+                "extension": {
+                    "description": "May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.",
+                    "items": {
+                        "$ref": "#/definitions/Extension"
+                    },
+                    "type": "array"
+                },
+                "modifierExtension": {
+                    "description": "May be used to represent additional information that is not part of the basic definition of the element and that modifies the understanding of the element in which it is contained and/or the understanding of the containing element's descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.\n\nModifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).",
+                    "items": {
+                        "$ref": "#/definitions/Extension"
+                    },
+                    "type": "array"
+                },
+                "uri": {
+                    "description": "A canonical reference to the Implementation guide for the dependency.",
+                    "$ref": "#/definitions/canonical"
+                },
+                "packageId": {
+                    "description": "The NPM package name for the Implementation Guide that this IG depends on.",
+                    "$ref": "#/definitions/id"
+                },
+                "version": {
+                    "description": "The version of the IG that is depended on, when the correct version is required to understand the IG correctly.",
+                    "$ref": "#/definitions/string"
+                }
+            },
+            "additionalProperties": false,
+            "required": [
+                "uri"
+            ]
+        },
+        "ImplementationGuide_Global": {
+            "description": "A set of rules of how a particular interoperability or standards problem is solved - typically through the use of FHIR resources. This resource is used to gather all the parts of an implementation guide into a logical whole and to publish a computable definition of all the parts.",
+            "properties": {
+                "id": {
+                    "description": "Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.",
+                    "$ref": "#/definitions/string"
+                },
+                "extension": {
+                    "description": "May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.",
+                    "items": {
+                        "$ref": "#/definitions/Extension"
+                    },
+                    "type": "array"
+                },
+                "modifierExtension": {
+                    "description": "May be used to represent additional information that is not part of the basic definition of the element and that modifies the understanding of the element in which it is contained and/or the understanding of the containing element's descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.\n\nModifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).",
+                    "items": {
+                        "$ref": "#/definitions/Extension"
+                    },
+                    "type": "array"
+                },
+                "type": {
+                    "description": "The type of resource that all instances must conform to.",
+                    "$ref": "#/definitions/code"
+                },
+                "profile": {
+                    "description": "A reference to the profile that all instances must conform to.",
+                    "$ref": "#/definitions/canonical"
+                }
+            },
+            "additionalProperties": false,
+            "required": [
+                "profile"
+            ]
+        },
+        "ImplementationGuide_Definition": {
+            "description": "A set of rules of how a particular interoperability or standards problem is solved - typically through the use of FHIR resources. This resource is used to gather all the parts of an implementation guide into a logical whole and to publish a computable definition of all the parts.",
+            "properties": {
+                "id": {
+                    "description": "Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.",
+                    "$ref": "#/definitions/string"
+                },
+                "extension": {
+                    "description": "May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.",
+                    "items": {
+                        "$ref": "#/definitions/Extension"
+                    },
+                    "type": "array"
+                },
+                "modifierExtension": {
+                    "description": "May be used to represent additional information that is not part of the basic definition of the element and that modifies the understanding of the element in which it is contained and/or the understanding of the containing element's descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.\n\nModifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).",
+                    "items": {
+                        "$ref": "#/definitions/Extension"
+                    },
+                    "type": "array"
+                },
+                "grouping": {
+                    "description": "A logical group of resources. Logical groups can be used when building pages.",
+                    "items": {
+                        "$ref": "#/definitions/ImplementationGuide_Grouping"
+                    },
+                    "type": "array"
+                },
+                "resource": {
+                    "description": "A resource that is part of the implementation guide. Conformance resources (value set, structure definition, capability statements etc.) are obvious candidates for inclusion, but any kind of resource can be included as an example resource.",
+                    "items": {
+                        "$ref": "#/definitions/ImplementationGuide_Resource"
+                    },
+                    "type": "array"
+                },
+                "page": {
+                    "description": "A page / section in the implementation guide. The root page is the implementation guide home page.",
+                    "$ref": "#/definitions/ImplementationGuide_Page"
+                },
+                "parameter": {
+                    "description": "Defines how IG is built by tools.",
+                    "items": {
+                        "$ref": "#/definitions/ImplementationGuide_Parameter"
+                    },
+                    "type": "array"
+                },
+                "template": {
+                    "description": "A template for building resources.",
+                    "items": {
+                        "$ref": "#/definitions/ImplementationGuide_Template"
+                    },
+                    "type": "array"
+                }
+            },
+            "additionalProperties": false,
+            "required": [
+                "resource"
+            ]
+        },
+        "ImplementationGuide_Manifest": {
+            "description": "A set of rules of how a particular interoperability or standards problem is solved - typically through the use of FHIR resources. This resource is used to gather all the parts of an implementation guide into a logical whole and to publish a computable definition of all the parts.",
+            "properties": {
+                "id": {
+                    "description": "Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.",
+                    "$ref": "#/definitions/string"
+                },
+                "extension": {
+                    "description": "May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.",
+                    "items": {
+                        "$ref": "#/definitions/Extension"
+                    },
+                    "type": "array"
+                },
+                "modifierExtension": {
+                    "description": "May be used to represent additional information that is not part of the basic definition of the element and that modifies the understanding of the element in which it is contained and/or the understanding of the containing element's descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.\n\nModifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).",
+                    "items": {
+                        "$ref": "#/definitions/Extension"
+                    },
+                    "type": "array"
+                },
+                "rendering": {
+                    "description": "A pointer to official web page, PDF or other rendering of the implementation guide.",
+                    "$ref": "#/definitions/url"
+                },
+                "resource": {
+                    "description": "A resource that is part of the implementation guide. Conformance resources (value set, structure definition, capability statements etc.) are obvious candidates for inclusion, but any kind of resource can be included as an example resource.",
+                    "items": {
+                        "$ref": "#/definitions/ImplementationGuide_Resource1"
+                    },
+                    "type": "array"
+                },
+                "page": {
+                    "description": "Information about a page within the IG.",
+                    "items": {
+                        "$ref": "#/definitions/ImplementationGuide_Page1"
+                    },
+                    "type": "array"
+                },
+                "image": {
+                    "description": "Indicates a relative path to an image that exists within the IG.",
+                    "items": {
+                        "$ref": "#/definitions/string"
+                    },
+                    "type": "array"
+                },
+                "other": {
+                    "description": "Indicates the relative path of an additional non-page, non-image file that is part of the IG - e.g. zip, jar and similar files that could be the target of a hyperlink in a derived IG.",
+                    "items": {
+                        "$ref": "#/definitions/string"
+                    },
+                    "type": "array"
+                }
+            },
+            "additionalProperties": false,
+            "required": [
+                "resource"
+            ]
+        },
+        "OperationOutcome": {
+            "description": "A collection of error, warning, or information messages that result from a system action.",
+            "properties": {
+                "resourceType": {
+                    "description": "This is a OperationOutcome resource",
+                    "type": "string"
+                },
+                "issue": {
+                    "description": "An error, warning, or information message that results from a system action.",
+                    "items": {
+                        "description": "A collection of error, warning, or information messages that result from a system action.",
+                        "properties": {
+                            "id": {
+                                "description": "Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.",
+                                "$ref": "#/definitions/string"
+                            },
+                            "severity": {
+                                "description": "Indicates whether the issue indicates a variation from successful processing.",
+                                "enum": [
+                                    "fatal",
+                                    "error",
+                                    "warning",
+                                    "information"
+                                ]
+                            },
+                            "code": {
+                                "description": "Describes the type of the issue. The system that creates an OperationOutcome SHALL choose the most applicable code from the IssueType value set, and may additional provide its own code for the error in the details element.",
+                                "enum": [
+                                    "invalid",
+                                    "structure",
+                                    "required",
+                                    "value",
+                                    "invariant",
+                                    "security",
+                                    "login",
+                                    "unknown",
+                                    "expired",
+                                    "forbidden",
+                                    "suppressed",
+                                    "processing",
+                                    "not-supported",
+                                    "duplicate",
+                                    "multiple-matches",
+                                    "not-found",
+                                    "deleted",
+                                    "too-long",
+                                    "code-invalid",
+                                    "extension",
+                                    "too-costly",
+                                    "business-rule",
+                                    "conflict",
+                                    "transient",
+                                    "lock-error",
+                                    "no-store",
+                                    "exception",
+                                    "timeout",
+                                    "incomplete",
+                                    "throttled",
+                                    "informational"
+                                ]
+                            },
+                            "details": {
+                                "description": "Additional details about the error. This may be a text description of the error or a system code that identifies the error.",
+                                "$ref": "#/definitions/CodeableConcept"
+                            },
+                            "diagnostics": {
+                                "description": "Additional diagnostic information about the issue.",
+                                "$ref": "#/definitions/string"
+                            },
+                            "location": {
+                                "description": "This element is deprecated because it is XML specific. It is replaced by issue.expression, which is format independent, and simpler to parse. \n\nFor resource issues, this will be a simple XPath limited to element names, repetition indicators and the default child accessor that identifies one of the elements in the resource that caused this issue to be raised.  For HTTP errors, will be \"http.\" + the parameter name.",
+                                "items": {
+                                    "$ref": "#/definitions/string"
+                                },
+                                "type": "array"
+                            },
+                            "expression": {
+                                "description": "A [simple subset of FHIRPath](fhirpath.html#simple) limited to element names, repetition indicators and the default child accessor that identifies one of the elements in the resource that caused this issue to be raised.",
+                                "items": {
+                                    "$ref": "#/definitions/string"
+                                },
+                                "type": "array"
+                            }
+                        },
+                        "additionalProperties": false
+                    },
+                    "type": "array"
+                }
+            },
+            "additionalProperties": false,
+            "required": [
+                "issue",
+                "resourceType"
+            ]
+        },
+        "Bundle": {
+            "description": "A container for a collection of resources.",
+            "properties": {
+                "resourceType": {
+                    "description": "This is a Bundle resource",
+                    "type": "string"
+                },
+                "identifier": {
+                    "description": "A persistent identifier for the bundle that won't change as a bundle is copied from server to server.",
+                    "$ref": "#/definitions/Identifier"
+                },
+                "type": {
+                    "description": "Indicates the purpose of this bundle - how it is intended to be used.",
+                    "enum": [
+                        "document",
+                        "message",
+                        "transaction",
+                        "transaction-response",
+                        "batch",
+                        "batch-response",
+                        "history",
+                        "searchset",
+                        "collection"
+                    ]
+                },
+                "timestamp": {
+                    "description": "The date/time that the bundle was assembled - i.e. when the resources were placed in the bundle.",
+                    "$ref": "#/definitions/instant"
+                },
+                "total": {
+                    "description": "If a set of search matches, this is the total number of entries of type 'match' across all pages in the search.  It does not include search.mode = 'include' or 'outcome' entries and it does not provide a count of the number of entries in the Bundle.",
+                    "$ref": "#/definitions/unsignedInt"
+                },
+                "link": {
+                    "description": "A series of links that provide context to this bundle.",
+                    "items": {
+                        "description": "A container for a collection of resources.",
+                        "properties": {
+                            "id": {
+                                "description": "Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.",
+                                "$ref": "#/definitions/string"
+                            },
+                            "relation": {
+                                "description": "A name which details the functional use for this link - see [http://www.iana.org/assignments/link-relations/link-relations.xhtml#link-relations-1](http://www.iana.org/assignments/link-relations/link-relations.xhtml#link-relations-1).",
+                                "$ref": "#/definitions/string"
+                            },
+                            "url": {
+                                "description": "The reference details for the link.",
+                                "$ref": "#/definitions/uri"
+                            }
+                        },
+                        "additionalProperties": false
+                    },
+                    "type": "array"
+                },
+                "entry": {
+                    "description": "An entry in a bundle resource - will either contain a resource or information about a resource (transactions and history only).",
+                    "items": {
+                        "description": "A container for a collection of resources.",
+                        "properties": {
+                            "id": {
+                                "description": "Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.",
+                                "$ref": "#/definitions/string"
+                            },
+                            "link": {
+                                "description": "A series of links that provide context to this entry.",
+                                "items": {
+                                    "description": "A container for a collection of resources.",
+                                    "properties": {
+                                        "id": {
+                                            "description": "Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.",
+                                            "$ref": "#/definitions/string"
+                                        },
+                                        "relation": {
+                                            "description": "A name which details the functional use for this link - see [http://www.iana.org/assignments/link-relations/link-relations.xhtml#link-relations-1](http://www.iana.org/assignments/link-relations/link-relations.xhtml#link-relations-1).",
+                                            "$ref": "#/definitions/string"
+                                        },
+                                        "url": {
+                                            "description": "The reference details for the link.",
+                                            "$ref": "#/definitions/uri"
+                                        }
+                                    },
+                                    "additionalProperties": false
+                                },
+                                "type": "array"
+                            },
+                            "fullUrl": {
+                                "description": "The Absolute URL for the resource.  The fullUrl SHALL NOT disagree with the id in the resource - i.e. if the fullUrl is not a urn:uuid, the URL shall be version-independent URL consistent with the Resource.id. The fullUrl is a version independent reference to the resource. The fullUrl element SHALL have a value except that: \n* fullUrl can be empty on a POST (although it does not need to when specifying a temporary id for reference in the bundle)\n* Results from operations might involve resources that are not identified.",
+                                "$ref": "#/definitions/uri"
+                            },
+                            "resource": {
+                                "description": "The Resource for the entry. The purpose/meaning of the resource is determined by the Bundle.type.",
+                                "$ref": "#/definitions/Resource"
+                            },
+                            "search": {
+                                "description": "Information about the search process that lead to the creation of this entry.",
+                                "properties": {
+                                    "id": {
+                                        "description": "Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.",
+                                        "$ref": "#/definitions/string"
+                                    },
+                                    "mode": {
+                                        "description": "Why this entry is in the result set - whether it's included as a match or because of an _include requirement, or to convey information or warning information about the search process.",
+                                        "enum": [
+                                            "match",
+                                            "include",
+                                            "outcome"
+                                        ]
+                                    },
+                                    "score": {
+                                        "description": "When searching, the server's search ranking score for the entry.",
+                                        "$ref": "#/definitions/decimal"
+                                    }
+                                },
+                                "additionalProperties": false
+                            },
+                            "request": {
+                                "description": "Additional information about how this entry should be processed as part of a transaction or batch.  For history, it shows how the entry was processed to create the version contained in the entry.",
+                                "properties": {
+                                    "id": {
+                                        "description": "Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.",
+                                        "$ref": "#/definitions/string"
+                                    },
+                                    "method": {
+                                        "description": "In a transaction or batch, this is the HTTP action to be executed for this entry. In a history bundle, this indicates the HTTP action that occurred.",
+                                        "enum": [
+                                            "GET",
+                                            "HEAD",
+                                            "POST",
+                                            "PUT",
+                                            "DELETE",
+                                            "PATCH"
+                                        ]
+                                    },
+                                    "url": {
+                                        "description": "The URL for this entry, relative to the root (the address to which the request is posted).",
+                                        "$ref": "#/definitions/uri"
+                                    },
+                                    "ifNoneMatch": {
+                                        "description": "If the ETag values match, return a 304 Not Modified status. See the API documentation for [\"Conditional Read\"](http.html#cread).",
+                                        "$ref": "#/definitions/string"
+                                    },
+                                    "ifModifiedSince": {
+                                        "description": "Only perform the operation if the last updated date matches. See the API documentation for [\"Conditional Read\"](http.html#cread).",
+                                        "$ref": "#/definitions/instant"
+                                    },
+                                    "ifMatch": {
+                                        "description": "Only perform the operation if the Etag value matches. For more information, see the API section [\"Managing Resource Contention\"](http.html#concurrency).",
+                                        "$ref": "#/definitions/string"
+                                    },
+                                    "ifNoneExist": {
+                                        "description": "Instruct the server not to perform the create if a specified resource already exists. For further information, see the API documentation for [\"Conditional Create\"](http.html#ccreate). This is just the query portion of the URL - what follows the \"?\" (not including the \"?\").",
+                                        "$ref": "#/definitions/string"
+                                    }
+                                },
+                                "additionalProperties": false
+                            },
+                            "response": {
+                                "description": "Indicates the results of processing the corresponding 'request' entry in the batch or transaction being responded to or what the results of an operation where when returning history.",
+                                "properties": {
+                                    "id": {
+                                        "description": "Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.",
+                                        "$ref": "#/definitions/string"
+                                    },
+                                    "status": {
+                                        "description": "The status code returned by processing this entry. The status SHALL start with a 3 digit HTTP code (e.g. 404) and may contain the standard HTTP description associated with the status code.",
+                                        "$ref": "#/definitions/string"
+                                    },
+                                    "location": {
+                                        "description": "The location header created by processing this operation, populated if the operation returns a location.",
+                                        "$ref": "#/definitions/uri"
+                                    },
+                                    "etag": {
+                                        "description": "The Etag for the resource, if the operation for the entry produced a versioned resource (see [Resource Metadata and Versioning](http.html#versioning) and [Managing Resource Contention](http.html#concurrency)).",
+                                        "$ref": "#/definitions/string"
+                                    },
+                                    "lastModified": {
+                                        "description": "The date/time that the resource was modified on the server.",
+                                        "$ref": "#/definitions/instant"
+                                    },
+                                    "outcome": {
+                                        "description": "An OperationOutcome containing hints and warnings produced as part of processing this entry in a batch or transaction.",
+                                        "$ref": "#/definitions/Resource"
+                                    }
+                                },
+                                "additionalProperties": false
+                            }
+                        },
+                        "additionalProperties": false
+                    },
+                    "type": "array"
+                },
+                "signature": {
+                    "description": "Digital Signature - base64 encoded. XML-DSig or a JWT.",
+                    "$ref": "#/definitions/Signature"
+                }
+            },
+            "additionalProperties": false,
+            "required": [
+                "resourceType"
+            ]
+        },
+        "unsignedInt": {
+            "pattern": "^[0]|([1-9][0-9]*)$",
+            "type": "number",
+            "description": "An integer with a value that is not negative (e.g. >= 0)"
+        },
+        "Resource": {
+            "properties": {
+                "resourceType": {
+                    "type": "string"
+                },
+                "id": {
+                    "$ref": "#/definitions/id"
+                },
+                "meta": {
+                    "$ref": "#/definitions/Meta"
+                },
+                "implicitRules": {
+                    "$ref": "#/definitions/uri"
+                },
+                "language": {
+                    "$ref": "#/definitions/code"
+                }
+            }
+        },
+        "Signature": {
+            "description": "A signature along with supporting context. The signature may be a digital signature that is cryptographic in nature, or some other signature acceptable to the domain. This other signature may be as simple as a graphical image representing a hand-written signature, or a signature ceremony Different signature approaches have different utilities.",
+            "properties": {
+                "id": {
+                    "description": "Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.",
+                    "$ref": "#/definitions/string"
+                },
+                "type": {
+                    "description": "An indication of the reason that the entity signed this document. This may be explicitly included as part of the signature information and can be used when determining accountability for various actions concerning the document.",
+                    "items": {
+                        "$ref": "#/definitions/Coding"
+                    },
+                    "type": "array"
+                },
+                "when": {
+                    "description": "When the digital signature was signed.",
+                    "$ref": "#/definitions/instant"
+                },
+                "who": {
+                    "description": "A reference to an application-usable description of the identity that signed  (e.g. the signature used their private key).",
+                    "$ref": "#/definitions/Reference"
+                },
+                "onBehalfOf": {
+                    "description": "A reference to an application-usable description of the identity that is represented by the signature.",
+                    "$ref": "#/definitions/Reference"
+                },
+                "targetFormat": {
+                    "description": "A mime type that indicates the technical format of the target resources signed by the signature.",
+                    "$ref": "#/definitions/code"
+                },
+                "sigFormat": {
+                    "description": "A mime type that indicates the technical format of the signature. Important mime types are application/signature+xml for X ML DigSig, application/jose for JWS, and image/* for a graphical image of a signature, etc.",
+                    "$ref": "#/definitions/code"
+                },
+                "data": {
+                    "description": "The base64 encoding of the Signature content. When signature is not recorded electronically this element would be empty.",
+                    "$ref": "#/definitions/base64Binary"
+                }
+            },
+            "additionalProperties": false,
+            "required": [
+                "type",
+                "who"
+            ]
+        },
+        "base64Binary": {
+            "type": "string",
+            "description": "A stream of bytes"
+        },
+        "decimal": {
+            "pattern": "^-?(0|[1-9][0-9]*)(\\.[0-9]+)?([eE][+-]?[0-9]+)?$",
+            "type": "number",
+            "description": "A rational number with implicit precision"
+        },
+        "instant": {
+            "pattern": "^([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\\.[0-9]+)?(Z|(\\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00))$",
+            "type": "string",
+            "description": "An instant in time - known at least to the second"
+        },
+        "canonical": {
+            "pattern": "^\\S*$",
+            "type": "string",
+            "description": "A URI that is a reference to a canonical URL on a FHIR resource"
+        },
+        "Coding": {
+            "description": "A reference to a code defined by a terminology system.",
+            "properties": {
+                "id": {
+                    "description": "Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.",
+                    "$ref": "#/definitions/string"
+                },
+                "extension": {
+                    "description": "May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.",
+                    "items": {
+                        "$ref": "#/definitions/Extension"
+                    },
+                    "type": "array"
+                },
+                "system": {
+                    "description": "The identification of the code system that defines the meaning of the symbol in the code.",
+                    "$ref": "#/definitions/uri"
+                },
+                "version": {
+                    "description": "The version of the code system which was used when choosing this code. Note that a well-maintained code system does not need the version reported, because the meaning of codes is consistent across versions. However this cannot consistently be assured, and when the meaning is not guaranteed to be consistent, the version SHOULD be exchanged.",
+                    "$ref": "#/definitions/string"
+                },
+                "code": {
+                    "description": "A symbol in syntax defined by the system. The symbol may be a predefined code or an expression in a syntax defined by the coding system (e.g. post-coordination).",
+                    "$ref": "#/definitions/code"
+                },
+                "display": {
+                    "description": "A representation of the meaning of the code in the system, following the rules of the system.",
+                    "$ref": "#/definitions/string"
+                },
+                "userSelected": {
+                    "description": "Indicates that this coding was chosen by a user directly - e.g. off a pick list of available items (codes or displays).",
+                    "$ref": "#/definitions/boolean"
+                }
+            },
+            "additionalProperties": false
+        },
+        "xhtml": {
+            "description": "xhtml - escaped html (see specfication)",
+            "type": "string"
+        },
+        "ContactPoint": {
+            "description": "Details for all kinds of technology mediated contact points for a person or organization, including telephone, email, etc.",
+            "properties": {
+                "id": {
+                    "description": "Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.",
+                    "$ref": "#/definitions/string"
+                },
+                "extension": {
+                    "description": "May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.",
+                    "items": {
+                        "$ref": "#/definitions/Extension"
+                    },
+                    "type": "array"
+                },
+                "system": {
+                    "description": "Telecommunications form for contact point - what communications system is required to make use of the contact.",
+                    "enum": [
+                        "phone",
+                        "fax",
+                        "email",
+                        "pager",
+                        "url",
+                        "sms",
+                        "other"
+                    ]
+                },
+                "value": {
+                    "description": "The actual contact point details, in a form that is meaningful to the designated communication system (i.e. phone number or email address).",
+                    "$ref": "#/definitions/string"
+                },
+                "use": {
+                    "description": "Identifies the purpose for the contact point.",
+                    "enum": [
+                        "home",
+                        "work",
+                        "temp",
+                        "old",
+                        "mobile"
+                    ]
+                },
+                "rank": {
+                    "description": "Specifies a preferred order in which to use a set of contacts. ContactPoints with lower rank values are more preferred than those with higher rank values.",
+                    "$ref": "#/definitions/positiveInt"
+                },
+                "period": {
+                    "description": "Time period when the contact point was/is in use.",
+                    "$ref": "#/definitions/Period"
+                }
+            },
+            "additionalProperties": false
+        },
+        "Quantity": {
+            "description": "A measured amount (or an amount that can potentially be measured). Note that measured amounts include amounts that are not precisely quantified, including amounts involving arbitrary units and floating currencies.",
+            "properties": {
+                "id": {
+                    "description": "Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.",
+                    "$ref": "#/definitions/string"
+                },
+                "extension": {
+                    "description": "May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.",
+                    "items": {
+                        "$ref": "#/definitions/Extension"
+                    },
+                    "type": "array"
+                },
+                "value": {
+                    "description": "The value of the measured amount. The value includes an implicit precision in the presentation of the value.",
+                    "$ref": "#/definitions/decimal"
+                },
+                "comparator": {
+                    "description": "How the value should be understood and represented - whether the actual value is greater or less than the stated value due to measurement issues; e.g. if the comparator is \"<\" , then the real value is < stated value.",
+                    "enum": [
+                        "<",
+                        "<=",
+                        ">=",
+                        ">"
+                    ]
+                },
+                "unit": {
+                    "description": "A human-readable form of the unit.",
+                    "$ref": "#/definitions/string"
+                },
+                "system": {
+                    "description": "The identification of the system that provides the coded form of the unit.",
+                    "$ref": "#/definitions/uri"
+                },
+                "code": {
+                    "description": "A computer processable form of the unit in some unit representation system.",
+                    "$ref": "#/definitions/code"
+                }
+            },
+            "additionalProperties": false
+        },
+        "Range": {
+            "description": "A set of ordered Quantities defined by a low and high limit.",
+            "properties": {
+                "id": {
+                    "description": "Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.",
+                    "$ref": "#/definitions/string"
+                },
+                "extension": {
+                    "description": "May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.",
+                    "items": {
+                        "$ref": "#/definitions/Extension"
+                    },
+                    "type": "array"
+                },
+                "low": {
+                    "description": "The low limit. The boundary is inclusive.",
+                    "$ref": "#/definitions/Quantity"
+                },
+                "high": {
+                    "description": "The high limit. The boundary is inclusive.",
+                    "$ref": "#/definitions/Quantity"
+                }
+            },
+            "additionalProperties": false
+        },
+        "Reference": {
+            "description": "A reference from one resource to another.",
+            "properties": {
+                "id": {
+                    "description": "Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.",
+                    "$ref": "#/definitions/string"
+                },
+                "extension": {
+                    "description": "May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.",
+                    "items": {
+                        "$ref": "#/definitions/Extension"
+                    },
+                    "type": "array"
+                },
+                "reference": {
+                    "description": "A reference to a location at which the other resource is found. The reference may be a relative reference, in which case it is relative to the service base URL, or an absolute URL that resolves to the location where the resource is found. The reference may be version specific or not. If the reference is not to a FHIR RESTful server, then it should be assumed to be version specific. Internal fragment references (start with '#') refer to contained resources.",
+                    "$ref": "#/definitions/string"
+                },
+                "type": {
+                    "description": "The expected type of the target of the reference. If both Reference.type and Reference.reference are populated and Reference.reference is a FHIR URL, both SHALL be consistent.\n\nThe type is the Canonical URL of Resource Definition that is the type this reference refers to. References are URLs that are relative to http://hl7.org/fhir/StructureDefinition/ e.g. \"Patient\" is a reference to http://hl7.org/fhir/StructureDefinition/Patient. Absolute URLs are only allowed for logical models (and can only be used in references in logical models, not resources).",
+                    "$ref": "#/definitions/uri"
+                },
+                "identifier": {
+                    "description": "An identifier for the target resource. This is used when there is no way to reference the other resource directly, either because the entity it represents is not available through a FHIR server, or because there is no way for the author of the resource to convert a known identifier to an actual location. There is no requirement that a Reference.identifier point to something that is actually exposed as a FHIR instance, but it SHALL point to a business concept that would be expected to be exposed as a FHIR instance, and that instance would need to be of a FHIR resource type allowed by the reference.",
+                    "$ref": "#/definitions/Identifier"
+                },
+                "display": {
+                    "description": "Plain text narrative that identifies the resource in addition to the resource reference.",
+                    "$ref": "#/definitions/string"
+                }
+            },
+            "additionalProperties": false
+        },
+        "ImplementationGuide_Grouping": {
+            "description": "A set of rules of how a particular interoperability or standards problem is solved - typically through the use of FHIR resources. This resource is used to gather all the parts of an implementation guide into a logical whole and to publish a computable definition of all the parts.",
+            "properties": {
+                "id": {
+                    "description": "Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.",
+                    "$ref": "#/definitions/string"
+                },
+                "extension": {
+                    "description": "May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.",
+                    "items": {
+                        "$ref": "#/definitions/Extension"
+                    },
+                    "type": "array"
+                },
+                "modifierExtension": {
+                    "description": "May be used to represent additional information that is not part of the basic definition of the element and that modifies the understanding of the element in which it is contained and/or the understanding of the containing element's descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.\n\nModifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).",
+                    "items": {
+                        "$ref": "#/definitions/Extension"
+                    },
+                    "type": "array"
+                },
+                "name": {
+                    "description": "The human-readable title to display for the package of resources when rendering the implementation guide.",
+                    "$ref": "#/definitions/string"
+                },
+                "description": {
+                    "description": "Human readable text describing the package.",
+                    "$ref": "#/definitions/string"
+                }
+            },
+            "additionalProperties": false
+        },
+        "ImplementationGuide_Resource": {
+            "description": "A set of rules of how a particular interoperability or standards problem is solved - typically through the use of FHIR resources. This resource is used to gather all the parts of an implementation guide into a logical whole and to publish a computable definition of all the parts.",
+            "properties": {
+                "id": {
+                    "description": "Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.",
+                    "$ref": "#/definitions/string"
+                },
+                "extension": {
+                    "description": "May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.",
+                    "items": {
+                        "$ref": "#/definitions/Extension"
+                    },
+                    "type": "array"
+                },
+                "modifierExtension": {
+                    "description": "May be used to represent additional information that is not part of the basic definition of the element and that modifies the understanding of the element in which it is contained and/or the understanding of the containing element's descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.\n\nModifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).",
+                    "items": {
+                        "$ref": "#/definitions/Extension"
+                    },
+                    "type": "array"
+                },
+                "reference": {
+                    "description": "Where this resource is found.",
+                    "$ref": "#/definitions/Reference"
+                },
+                "fhirVersion": {
+                    "description": "Indicates the FHIR Version(s) this artifact is intended to apply to. If no versions are specified, the resource is assumed to apply to all the versions stated in ImplementationGuide.fhirVersion.",
+                    "items": {
+                        "enum": [
+                            "0.01",
+                            "0.05",
+                            "0.06",
+                            "0.11",
+                            "0.0.80",
+                            "0.0.81",
+                            "0.0.82",
+                            "0.4.0",
+                            "0.5.0",
+                            "1.0.0",
+                            "1.0.1",
+                            "1.0.2",
+                            "1.1.0",
+                            "1.4.0",
+                            "1.6.0",
+                            "1.8.0",
+                            "3.0.0",
+                            "3.0.1",
+                            "3.3.0",
+                            "3.5.0",
+                            "4.0.0"
+                        ]
+                    },
+                    "type": "array"
+                },
+                "name": {
+                    "description": "A human assigned name for the resource. All resources SHOULD have a name, but the name may be extracted from the resource (e.g. ValueSet.name).",
+                    "$ref": "#/definitions/string"
+                },
+                "description": {
+                    "description": "A description of the reason that a resource has been included in the implementation guide.",
+                    "$ref": "#/definitions/string"
+                },
+                "exampleBoolean": {
+                    "description": "If true or a reference, indicates the resource is an example instance.  If a reference is present, indicates that the example is an example of the specified profile.",
+                    "pattern": "^true|false$",
+                    "type": "boolean"
+                },
+                "exampleCanonical": {
+                    "description": "If true or a reference, indicates the resource is an example instance.  If a reference is present, indicates that the example is an example of the specified profile.",
+                    "pattern": "^\\S*$",
+                    "type": "string"
+                },
+                "groupingId": {
+                    "description": "Reference to the id of the grouping this resource appears in.",
+                    "$ref": "#/definitions/id"
+                }
+            },
+            "additionalProperties": false,
+            "required": [
+                "reference"
+            ]
+        },
+        "ImplementationGuide_Page": {
+            "description": "A set of rules of how a particular interoperability or standards problem is solved - typically through the use of FHIR resources. This resource is used to gather all the parts of an implementation guide into a logical whole and to publish a computable definition of all the parts.",
+            "properties": {
+                "id": {
+                    "description": "Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.",
+                    "$ref": "#/definitions/string"
+                },
+                "extension": {
+                    "description": "May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.",
+                    "items": {
+                        "$ref": "#/definitions/Extension"
+                    },
+                    "type": "array"
+                },
+                "modifierExtension": {
+                    "description": "May be used to represent additional information that is not part of the basic definition of the element and that modifies the understanding of the element in which it is contained and/or the understanding of the containing element's descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.\n\nModifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).",
+                    "items": {
+                        "$ref": "#/definitions/Extension"
+                    },
+                    "type": "array"
+                },
+                "nameUrl": {
+                    "description": "The source address for the page.",
+                    "pattern": "^\\S*$",
+                    "type": "string"
+                },
+                "nameReference": {
+                    "description": "The source address for the page.",
+                    "$ref": "#/definitions/Reference"
+                },
+                "title": {
+                    "description": "A short title used to represent this page in navigational structures such as table of contents, bread crumbs, etc.",
+                    "$ref": "#/definitions/string"
+                },
+                "generation": {
+                    "description": "A code that indicates how the page is generated.",
+                    "enum": [
+                        "html",
+                        "markdown",
+                        "xml",
+                        "generated"
+                    ]
+                },
+                "page": {
+                    "description": "Nested Pages/Sections under this page.",
+                    "items": {
+                        "$ref": "#/definitions/ImplementationGuide_Page"
+                    },
+                    "type": "array"
+                }
+            },
+            "additionalProperties": false
+        },
+        "ImplementationGuide_Parameter": {
+            "description": "A set of rules of how a particular interoperability or standards problem is solved - typically through the use of FHIR resources. This resource is used to gather all the parts of an implementation guide into a logical whole and to publish a computable definition of all the parts.",
+            "properties": {
+                "id": {
+                    "description": "Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.",
+                    "$ref": "#/definitions/string"
+                },
+                "extension": {
+                    "description": "May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.",
+                    "items": {
+                        "$ref": "#/definitions/Extension"
+                    },
+                    "type": "array"
+                },
+                "modifierExtension": {
+                    "description": "May be used to represent additional information that is not part of the basic definition of the element and that modifies the understanding of the element in which it is contained and/or the understanding of the containing element's descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.\n\nModifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).",
+                    "items": {
+                        "$ref": "#/definitions/Extension"
+                    },
+                    "type": "array"
+                },
+                "code": {
+                    "description": "apply | path-resource | path-pages | path-tx-cache | expansion-parameter | rule-broken-links | generate-xml | generate-json | generate-turtle | html-template.",
+                    "enum": [
+                        "apply",
+                        "path-resource",
+                        "path-pages",
+                        "path-tx-cache",
+                        "expansion-parameter",
+                        "rule-broken-links",
+                        "generate-xml",
+                        "generate-json",
+                        "generate-turtle",
+                        "html-template"
+                    ]
+                },
+                "value": {
+                    "description": "Value for named type.",
+                    "$ref": "#/definitions/string"
+                }
+            },
+            "additionalProperties": false
+        },
+        "ImplementationGuide_Template": {
+            "description": "A set of rules of how a particular interoperability or standards problem is solved - typically through the use of FHIR resources. This resource is used to gather all the parts of an implementation guide into a logical whole and to publish a computable definition of all the parts.",
+            "properties": {
+                "id": {
+                    "description": "Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.",
+                    "$ref": "#/definitions/string"
+                },
+                "extension": {
+                    "description": "May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.",
+                    "items": {
+                        "$ref": "#/definitions/Extension"
+                    },
+                    "type": "array"
+                },
+                "modifierExtension": {
+                    "description": "May be used to represent additional information that is not part of the basic definition of the element and that modifies the understanding of the element in which it is contained and/or the understanding of the containing element's descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.\n\nModifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).",
+                    "items": {
+                        "$ref": "#/definitions/Extension"
+                    },
+                    "type": "array"
+                },
+                "code": {
+                    "description": "Type of template specified.",
+                    "$ref": "#/definitions/code"
+                },
+                "source": {
+                    "description": "The source location for the template.",
+                    "$ref": "#/definitions/string"
+                },
+                "scope": {
+                    "description": "The scope in which the template applies.",
+                    "$ref": "#/definitions/string"
+                }
+            },
+            "additionalProperties": false
+        },
+        "url": {
+            "pattern": "^\\S*$",
+            "type": "string",
+            "description": "A URI that is a literal reference"
+        },
+        "ImplementationGuide_Resource1": {
+            "description": "A set of rules of how a particular interoperability or standards problem is solved - typically through the use of FHIR resources. This resource is used to gather all the parts of an implementation guide into a logical whole and to publish a computable definition of all the parts.",
+            "properties": {
+                "id": {
+                    "description": "Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.",
+                    "$ref": "#/definitions/string"
+                },
+                "extension": {
+                    "description": "May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.",
+                    "items": {
+                        "$ref": "#/definitions/Extension"
+                    },
+                    "type": "array"
+                },
+                "modifierExtension": {
+                    "description": "May be used to represent additional information that is not part of the basic definition of the element and that modifies the understanding of the element in which it is contained and/or the understanding of the containing element's descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.\n\nModifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).",
+                    "items": {
+                        "$ref": "#/definitions/Extension"
+                    },
+                    "type": "array"
+                },
+                "reference": {
+                    "description": "Where this resource is found.",
+                    "$ref": "#/definitions/Reference"
+                },
+                "exampleBoolean": {
+                    "description": "If true or a reference, indicates the resource is an example instance.  If a reference is present, indicates that the example is an example of the specified profile.",
+                    "pattern": "^true|false$",
+                    "type": "boolean"
+                },
+                "exampleCanonical": {
+                    "description": "If true or a reference, indicates the resource is an example instance.  If a reference is present, indicates that the example is an example of the specified profile.",
+                    "pattern": "^\\S*$",
+                    "type": "string"
+                },
+                "relativePath": {
+                    "description": "The relative path for primary page for this resource within the IG.",
+                    "$ref": "#/definitions/url"
+                }
+            },
+            "additionalProperties": false,
+            "required": [
+                "reference"
+            ]
+        },
+        "ImplementationGuide_Page1": {
+            "description": "A set of rules of how a particular interoperability or standards problem is solved - typically through the use of FHIR resources. This resource is used to gather all the parts of an implementation guide into a logical whole and to publish a computable definition of all the parts.",
+            "properties": {
+                "id": {
+                    "description": "Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.",
+                    "$ref": "#/definitions/string"
+                },
+                "extension": {
+                    "description": "May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.",
+                    "items": {
+                        "$ref": "#/definitions/Extension"
+                    },
+                    "type": "array"
+                },
+                "modifierExtension": {
+                    "description": "May be used to represent additional information that is not part of the basic definition of the element and that modifies the understanding of the element in which it is contained and/or the understanding of the containing element's descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.\n\nModifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).",
+                    "items": {
+                        "$ref": "#/definitions/Extension"
+                    },
+                    "type": "array"
+                },
+                "name": {
+                    "description": "Relative path to the page.",
+                    "$ref": "#/definitions/string"
+                },
+                "title": {
+                    "description": "Label for the page intended for human display.",
+                    "$ref": "#/definitions/string"
+                },
+                "anchor": {
+                    "description": "The name of an anchor available on the page.",
+                    "items": {
+                        "$ref": "#/definitions/string"
+                    },
+                    "type": "array"
+                }
+            },
+            "additionalProperties": false
+        },
+        "positiveInt": {
+            "pattern": "^[1-9][0-9]*$",
+            "type": "number",
+            "description": "An integer with a value that is positive (e.g. >0)"
+        },
+        "Period": {
+            "description": "A time period defined by a start and end date and optionally time.",
+            "properties": {
+                "id": {
+                    "description": "Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.",
+                    "$ref": "#/definitions/string"
+                },
+                "extension": {
+                    "description": "May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.",
+                    "items": {
+                        "$ref": "#/definitions/Extension"
+                    },
+                    "type": "array"
+                },
+                "start": {
+                    "description": "The start of the period. The boundary is inclusive.",
+                    "$ref": "#/definitions/dateTime"
+                },
+                "end": {
+                    "description": "The end of the period. If the end of the period is missing, it means no end was known or planned at the time the instance was created. The start may be in the past, and the end date in the future, which means that period is expected/planned to end at that time.",
+                    "$ref": "#/definitions/dateTime"
+                }
+            },
+            "additionalProperties": false
+        },
+        "Identifier": {
+            "description": "An identifier - identifies some entity uniquely and unambiguously. Typically this is used for business identifiers.",
+            "properties": {
+                "id": {
+                    "description": "Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.",
+                    "$ref": "#/definitions/string"
+                },
+                "extension": {
+                    "description": "May be used to represent additional information that is not part of the basic definition of the element. To make the use of extensions safe and manageable, there is a strict set of governance  applied to the definition and use of extensions. Though any implementer can define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension.",
+                    "items": {
+                        "$ref": "#/definitions/Extension"
+                    },
+                    "type": "array"
+                },
+                "use": {
+                    "description": "The purpose of this identifier.",
+                    "enum": [
+                        "usual",
+                        "official",
+                        "temp",
+                        "secondary",
+                        "old"
+                    ]
+                },
+                "type": {
+                    "description": "A coded type for the identifier that can be used to determine which identifier to use for a specific purpose.",
+                    "$ref": "#/definitions/CodeableConcept"
+                },
+                "system": {
+                    "description": "Establishes the namespace for the value - that is, a URL that describes a set values that are unique.",
+                    "$ref": "#/definitions/uri"
+                },
+                "value": {
+                    "description": "The portion of the identifier typically relevant to the user and which is unique within the context of the system.",
+                    "$ref": "#/definitions/string"
+                },
+                "period": {
+                    "description": "Time period during which identifier is/was valid for use.",
+                    "$ref": "#/definitions/Period"
+                },
+                "assigner": {
+                    "description": "Organization that issued/manages the identifier.",
+                    "$ref": "#/definitions/Reference"
+                }
+            },
+            "additionalProperties": false
+        }
+    },
+    "host": "hapi.fhir.org",
+    "basePath": "/",
+    "info": {
+        "title": "ImplementationGuideFHIRAPI",
+        "version": "4.0",
+        "description": "A set of rules of how a particular interoperability or standards problem is solved - typically through the use of FHIR resources. This resource is used to gather all the parts of an implementation guide into a logical whole and to publish a computable definition of all the parts."
+    },
+    "paths": {
+        "/ImplementationGuide": {
+            "post": {
+                "tags": [
+                    "ImplementationGuide"
+                ],
+                "summary": "Create ImplementationGuide",
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "schema": {
+                            "$ref": "#/definitions/ImplementationGuide"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "schema": {
+                            "$ref": "#/definitions/ImplementationGuide"
+                        }
+                    },
+                    "400": {
+                        "description": "Unexpected Error",
+                        "schema": {
+                            "$ref": "#/definitions/OperationOutcome"
+                        }
+                    },
+                    "500": {
+                        "description": "Unexpected Error",
+                        "schema": {
+                            "$ref": "#/definitions/OperationOutcome"
+                        }
+                    },
+                    "default": {
+                        "description": "Unexpected Error",
+                        "schema": {
+                            "$ref": "#/definitions/OperationOutcome"
+                        }
+                    }
+                }
+            },
+            "get": {
+                "tags": [
+                    "ImplementationGuide"
+                ],
+                "summary": "Get ImplementationGuide",
+                "parameters": [
+                    {
+                        "name": "_text",
+                        "in": "query",
+                        "type": "string",
+                        "description": "Search on the narrative of the resource"
+                    },
+                    {
+                        "name": "_content",
+                        "in": "query",
+                        "type": "string",
+                        "description": "Search on the entire content of the resource"
+                    },
+                    {
+                        "name": "_id",
+                        "in": "query",
+                        "type": "string",
+                        "description": "Logical id of this artifact"
+                    },
+                    {
+                        "name": "_lastUpdated",
+                        "in": "query",
+                        "type": "string",
+                        "description": "When the resource version last changed"
+                    },
+                    {
+                        "name": "_profile",
+                        "in": "query",
+                        "type": "string",
+                        "description": "Profiles this resource claims to conform to"
+                    },
+                    {
+                        "name": "_query",
+                        "in": "query",
+                        "type": "string",
+                        "description": "A custom search profile that describes a specific defined query operation"
+                    },
+                    {
+                        "name": "_security",
+                        "in": "query",
+                        "type": "string",
+                        "description": "Security Labels applied to this resource"
+                    },
+                    {
+                        "name": "_source",
+                        "in": "query",
+                        "type": "string",
+                        "description": "Identifies where the resource comes from"
+                    },
+                    {
+                        "name": "_tag",
+                        "in": "query",
+                        "type": "string",
+                        "description": "Tags applied to this resource"
+                    },
+                    {
+                        "name": "context",
+                        "in": "query",
+                        "type": "string",
+                        "description": "Multiple Resources: \r\n\r\n* [CapabilityStatement](capabilitystatement.html): A use context assigned to the capability statement\r\n* [CodeSystem](codesystem.html): A use context assigned to the code system\r\n* [CompartmentDefinition](compartmentdefinition.html): A use context assigned to the compartment definition\r\n* [ConceptMap](conceptmap.html): A use context assigned to the concept map\r\n* [GraphDefinition](graphdefinition.html): A use context assigned to the graph definition\r\n* [ImplementationGuide](implementationguide.html): A use context assigned to the implementation guide\r\n* [MessageDefinition](messagedefinition.html): A use context assigned to the message definition\r\n* [NamingSystem](namingsystem.html): A use context assigned to the naming system\r\n* [OperationDefinition](operationdefinition.html): A use context assigned to the operation definition\r\n* [SearchParameter](searchparameter.html): A use context assigned to the search parameter\r\n* [StructureDefinition](structuredefinition.html): A use context assigned to the structure definition\r\n* [StructureMap](structuremap.html): A use context assigned to the structure map\r\n* [TerminologyCapabilities](terminologycapabilities.html): A use context assigned to the terminology capabilities\r\n* [ValueSet](valueset.html): A use context assigned to the value set\r\n"
+                    },
+                    {
+                        "name": "context-quantity",
+                        "in": "query",
+                        "type": "string",
+                        "description": "Multiple Resources: \r\n\r\n* [CapabilityStatement](capabilitystatement.html): A quantity- or range-valued use context assigned to the capability statement\r\n* [CodeSystem](codesystem.html): A quantity- or range-valued use context assigned to the code system\r\n* [CompartmentDefinition](compartmentdefinition.html): A quantity- or range-valued use context assigned to the compartment definition\r\n* [ConceptMap](conceptmap.html): A quantity- or range-valued use context assigned to the concept map\r\n* [GraphDefinition](graphdefinition.html): A quantity- or range-valued use context assigned to the graph definition\r\n* [ImplementationGuide](implementationguide.html): A quantity- or range-valued use context assigned to the implementation guide\r\n* [MessageDefinition](messagedefinition.html): A quantity- or range-valued use context assigned to the message definition\r\n* [NamingSystem](namingsystem.html): A quantity- or range-valued use context assigned to the naming system\r\n* [OperationDefinition](operationdefinition.html): A quantity- or range-valued use context assigned to the operation definition\r\n* [SearchParameter](searchparameter.html): A quantity- or range-valued use context assigned to the search parameter\r\n* [StructureDefinition](structuredefinition.html): A quantity- or range-valued use context assigned to the structure definition\r\n* [StructureMap](structuremap.html): A quantity- or range-valued use context assigned to the structure map\r\n* [TerminologyCapabilities](terminologycapabilities.html): A quantity- or range-valued use context assigned to the terminology capabilities\r\n* [ValueSet](valueset.html): A quantity- or range-valued use context assigned to the value set\r\n"
+                    },
+                    {
+                        "name": "context-type",
+                        "in": "query",
+                        "type": "string",
+                        "description": "Multiple Resources: \r\n\r\n* [CapabilityStatement](capabilitystatement.html): A type of use context assigned to the capability statement\r\n* [CodeSystem](codesystem.html): A type of use context assigned to the code system\r\n* [CompartmentDefinition](compartmentdefinition.html): A type of use context assigned to the compartment definition\r\n* [ConceptMap](conceptmap.html): A type of use context assigned to the concept map\r\n* [GraphDefinition](graphdefinition.html): A type of use context assigned to the graph definition\r\n* [ImplementationGuide](implementationguide.html): A type of use context assigned to the implementation guide\r\n* [MessageDefinition](messagedefinition.html): A type of use context assigned to the message definition\r\n* [NamingSystem](namingsystem.html): A type of use context assigned to the naming system\r\n* [OperationDefinition](operationdefinition.html): A type of use context assigned to the operation definition\r\n* [SearchParameter](searchparameter.html): A type of use context assigned to the search parameter\r\n* [StructureDefinition](structuredefinition.html): A type of use context assigned to the structure definition\r\n* [StructureMap](structuremap.html): A type of use context assigned to the structure map\r\n* [TerminologyCapabilities](terminologycapabilities.html): A type of use context assigned to the terminology capabilities\r\n* [ValueSet](valueset.html): A type of use context assigned to the value set\r\n"
+                    },
+                    {
+                        "name": "date",
+                        "in": "query",
+                        "type": "string",
+                        "description": "Multiple Resources: \r\n\r\n* [CapabilityStatement](capabilitystatement.html): The capability statement publication date\r\n* [CodeSystem](codesystem.html): The code system publication date\r\n* [CompartmentDefinition](compartmentdefinition.html): The compartment definition publication date\r\n* [ConceptMap](conceptmap.html): The concept map publication date\r\n* [GraphDefinition](graphdefinition.html): The graph definition publication date\r\n* [ImplementationGuide](implementationguide.html): The implementation guide publication date\r\n* [MessageDefinition](messagedefinition.html): The message definition publication date\r\n* [NamingSystem](namingsystem.html): The naming system publication date\r\n* [OperationDefinition](operationdefinition.html): The operation definition publication date\r\n* [SearchParameter](searchparameter.html): The search parameter publication date\r\n* [StructureDefinition](structuredefinition.html): The structure definition publication date\r\n* [StructureMap](structuremap.html): The structure map publication date\r\n* [TerminologyCapabilities](terminologycapabilities.html): The terminology capabilities publication date\r\n* [ValueSet](valueset.html): The value set publication date\r\n"
+                    },
+                    {
+                        "name": "description",
+                        "in": "query",
+                        "type": "string",
+                        "description": "Multiple Resources: \r\n\r\n* [CapabilityStatement](capabilitystatement.html): The description of the capability statement\r\n* [CodeSystem](codesystem.html): The description of the code system\r\n* [CompartmentDefinition](compartmentdefinition.html): The description of the compartment definition\r\n* [ConceptMap](conceptmap.html): The description of the concept map\r\n* [GraphDefinition](graphdefinition.html): The description of the graph definition\r\n* [ImplementationGuide](implementationguide.html): The description of the implementation guide\r\n* [MessageDefinition](messagedefinition.html): The description of the message definition\r\n* [NamingSystem](namingsystem.html): The description of the naming system\r\n* [OperationDefinition](operationdefinition.html): The description of the operation definition\r\n* [SearchParameter](searchparameter.html): The description of the search parameter\r\n* [StructureDefinition](structuredefinition.html): The description of the structure definition\r\n* [StructureMap](structuremap.html): The description of the structure map\r\n* [TerminologyCapabilities](terminologycapabilities.html): The description of the terminology capabilities\r\n* [ValueSet](valueset.html): The description of the value set\r\n"
+                    },
+                    {
+                        "name": "jurisdiction",
+                        "in": "query",
+                        "type": "string",
+                        "description": "Multiple Resources: \r\n\r\n* [CapabilityStatement](capabilitystatement.html): Intended jurisdiction for the capability statement\r\n* [CodeSystem](codesystem.html): Intended jurisdiction for the code system\r\n* [ConceptMap](conceptmap.html): Intended jurisdiction for the concept map\r\n* [GraphDefinition](graphdefinition.html): Intended jurisdiction for the graph definition\r\n* [ImplementationGuide](implementationguide.html): Intended jurisdiction for the implementation guide\r\n* [MessageDefinition](messagedefinition.html): Intended jurisdiction for the message definition\r\n* [NamingSystem](namingsystem.html): Intended jurisdiction for the naming system\r\n* [OperationDefinition](operationdefinition.html): Intended jurisdiction for the operation definition\r\n* [SearchParameter](searchparameter.html): Intended jurisdiction for the search parameter\r\n* [StructureDefinition](structuredefinition.html): Intended jurisdiction for the structure definition\r\n* [StructureMap](structuremap.html): Intended jurisdiction for the structure map\r\n* [TerminologyCapabilities](terminologycapabilities.html): Intended jurisdiction for the terminology capabilities\r\n* [ValueSet](valueset.html): Intended jurisdiction for the value set\r\n"
+                    },
+                    {
+                        "name": "name",
+                        "in": "query",
+                        "type": "string",
+                        "description": "Multiple Resources: \r\n\r\n* [CapabilityStatement](capabilitystatement.html): Computationally friendly name of the capability statement\r\n* [CodeSystem](codesystem.html): Computationally friendly name of the code system\r\n* [CompartmentDefinition](compartmentdefinition.html): Computationally friendly name of the compartment definition\r\n* [ConceptMap](conceptmap.html): Computationally friendly name of the concept map\r\n* [GraphDefinition](graphdefinition.html): Computationally friendly name of the graph definition\r\n* [ImplementationGuide](implementationguide.html): Computationally friendly name of the implementation guide\r\n* [MessageDefinition](messagedefinition.html): Computationally friendly name of the message definition\r\n* [NamingSystem](namingsystem.html): Computationally friendly name of the naming system\r\n* [OperationDefinition](operationdefinition.html): Computationally friendly name of the operation definition\r\n* [SearchParameter](searchparameter.html): Computationally friendly name of the search parameter\r\n* [StructureDefinition](structuredefinition.html): Computationally friendly name of the structure definition\r\n* [StructureMap](structuremap.html): Computationally friendly name of the structure map\r\n* [TerminologyCapabilities](terminologycapabilities.html): Computationally friendly name of the terminology capabilities\r\n* [ValueSet](valueset.html): Computationally friendly name of the value set\r\n"
+                    },
+                    {
+                        "name": "publisher",
+                        "in": "query",
+                        "type": "string",
+                        "description": "Multiple Resources: \r\n\r\n* [CapabilityStatement](capabilitystatement.html): Name of the publisher of the capability statement\r\n* [CodeSystem](codesystem.html): Name of the publisher of the code system\r\n* [CompartmentDefinition](compartmentdefinition.html): Name of the publisher of the compartment definition\r\n* [ConceptMap](conceptmap.html): Name of the publisher of the concept map\r\n* [GraphDefinition](graphdefinition.html): Name of the publisher of the graph definition\r\n* [ImplementationGuide](implementationguide.html): Name of the publisher of the implementation guide\r\n* [MessageDefinition](messagedefinition.html): Name of the publisher of the message definition\r\n* [NamingSystem](namingsystem.html): Name of the publisher of the naming system\r\n* [OperationDefinition](operationdefinition.html): Name of the publisher of the operation definition\r\n* [SearchParameter](searchparameter.html): Name of the publisher of the search parameter\r\n* [StructureDefinition](structuredefinition.html): Name of the publisher of the structure definition\r\n* [StructureMap](structuremap.html): Name of the publisher of the structure map\r\n* [TerminologyCapabilities](terminologycapabilities.html): Name of the publisher of the terminology capabilities\r\n* [ValueSet](valueset.html): Name of the publisher of the value set\r\n"
+                    },
+                    {
+                        "name": "status",
+                        "in": "query",
+                        "type": "string",
+                        "description": "Multiple Resources: \r\n\r\n* [CapabilityStatement](capabilitystatement.html): The current status of the capability statement\r\n* [CodeSystem](codesystem.html): The current status of the code system\r\n* [CompartmentDefinition](compartmentdefinition.html): The current status of the compartment definition\r\n* [ConceptMap](conceptmap.html): The current status of the concept map\r\n* [GraphDefinition](graphdefinition.html): The current status of the graph definition\r\n* [ImplementationGuide](implementationguide.html): The current status of the implementation guide\r\n* [MessageDefinition](messagedefinition.html): The current status of the message definition\r\n* [NamingSystem](namingsystem.html): The current status of the naming system\r\n* [OperationDefinition](operationdefinition.html): The current status of the operation definition\r\n* [SearchParameter](searchparameter.html): The current status of the search parameter\r\n* [StructureDefinition](structuredefinition.html): The current status of the structure definition\r\n* [StructureMap](structuremap.html): The current status of the structure map\r\n* [TerminologyCapabilities](terminologycapabilities.html): The current status of the terminology capabilities\r\n* [ValueSet](valueset.html): The current status of the value set\r\n"
+                    },
+                    {
+                        "name": "title",
+                        "in": "query",
+                        "type": "string",
+                        "description": "Multiple Resources: \r\n\r\n* [CapabilityStatement](capabilitystatement.html): The human-friendly name of the capability statement\r\n* [CodeSystem](codesystem.html): The human-friendly name of the code system\r\n* [ConceptMap](conceptmap.html): The human-friendly name of the concept map\r\n* [ImplementationGuide](implementationguide.html): The human-friendly name of the implementation guide\r\n* [MessageDefinition](messagedefinition.html): The human-friendly name of the message definition\r\n* [OperationDefinition](operationdefinition.html): The human-friendly name of the operation definition\r\n* [StructureDefinition](structuredefinition.html): The human-friendly name of the structure definition\r\n* [StructureMap](structuremap.html): The human-friendly name of the structure map\r\n* [TerminologyCapabilities](terminologycapabilities.html): The human-friendly name of the terminology capabilities\r\n* [ValueSet](valueset.html): The human-friendly name of the value set\r\n"
+                    },
+                    {
+                        "name": "url",
+                        "in": "query",
+                        "type": "string",
+                        "description": "Multiple Resources: \r\n\r\n* [CapabilityStatement](capabilitystatement.html): The uri that identifies the capability statement\r\n* [CodeSystem](codesystem.html): The uri that identifies the code system\r\n* [CompartmentDefinition](compartmentdefinition.html): The uri that identifies the compartment definition\r\n* [ConceptMap](conceptmap.html): The uri that identifies the concept map\r\n* [GraphDefinition](graphdefinition.html): The uri that identifies the graph definition\r\n* [ImplementationGuide](implementationguide.html): The uri that identifies the implementation guide\r\n* [MessageDefinition](messagedefinition.html): The uri that identifies the message definition\r\n* [OperationDefinition](operationdefinition.html): The uri that identifies the operation definition\r\n* [SearchParameter](searchparameter.html): The uri that identifies the search parameter\r\n* [StructureDefinition](structuredefinition.html): The uri that identifies the structure definition\r\n* [StructureMap](structuremap.html): The uri that identifies the structure map\r\n* [TerminologyCapabilities](terminologycapabilities.html): The uri that identifies the terminology capabilities\r\n* [ValueSet](valueset.html): The uri that identifies the value set\r\n"
+                    },
+                    {
+                        "name": "version",
+                        "in": "query",
+                        "type": "string",
+                        "description": "Multiple Resources: \r\n\r\n* [CapabilityStatement](capabilitystatement.html): The business version of the capability statement\r\n* [CodeSystem](codesystem.html): The business version of the code system\r\n* [CompartmentDefinition](compartmentdefinition.html): The business version of the compartment definition\r\n* [ConceptMap](conceptmap.html): The business version of the concept map\r\n* [GraphDefinition](graphdefinition.html): The business version of the graph definition\r\n* [ImplementationGuide](implementationguide.html): The business version of the implementation guide\r\n* [MessageDefinition](messagedefinition.html): The business version of the message definition\r\n* [OperationDefinition](operationdefinition.html): The business version of the operation definition\r\n* [SearchParameter](searchparameter.html): The business version of the search parameter\r\n* [StructureDefinition](structuredefinition.html): The business version of the structure definition\r\n* [StructureMap](structuremap.html): The business version of the structure map\r\n* [TerminologyCapabilities](terminologycapabilities.html): The business version of the terminology capabilities\r\n* [ValueSet](valueset.html): The business version of the value set\r\n"
+                    },
+                    {
+                        "name": "context-type-quantity",
+                        "in": "query",
+                        "type": "string",
+                        "description": "Multiple Resources: \r\n\r\n* [CapabilityStatement](capabilitystatement.html): A use context type and quantity- or range-based value assigned to the capability statement\r\n* [CodeSystem](codesystem.html): A use context type and quantity- or range-based value assigned to the code system\r\n* [CompartmentDefinition](compartmentdefinition.html): A use context type and quantity- or range-based value assigned to the compartment definition\r\n* [ConceptMap](conceptmap.html): A use context type and quantity- or range-based value assigned to the concept map\r\n* [GraphDefinition](graphdefinition.html): A use context type and quantity- or range-based value assigned to the graph definition\r\n* [ImplementationGuide](implementationguide.html): A use context type and quantity- or range-based value assigned to the implementation guide\r\n* [MessageDefinition](messagedefinition.html): A use context type and quantity- or range-based value assigned to the message definition\r\n* [NamingSystem](namingsystem.html): A use context type and quantity- or range-based value assigned to the naming system\r\n* [OperationDefinition](operationdefinition.html): A use context type and quantity- or range-based value assigned to the operation definition\r\n* [SearchParameter](searchparameter.html): A use context type and quantity- or range-based value assigned to the search parameter\r\n* [StructureDefinition](structuredefinition.html): A use context type and quantity- or range-based value assigned to the structure definition\r\n* [StructureMap](structuremap.html): A use context type and quantity- or range-based value assigned to the structure map\r\n* [TerminologyCapabilities](terminologycapabilities.html): A use context type and quantity- or range-based value assigned to the terminology capabilities\r\n* [ValueSet](valueset.html): A use context type and quantity- or range-based value assigned to the value set\r\n"
+                    },
+                    {
+                        "name": "context-type-value",
+                        "in": "query",
+                        "type": "string",
+                        "description": "Multiple Resources: \r\n\r\n* [CapabilityStatement](capabilitystatement.html): A use context type and value assigned to the capability statement\r\n* [CodeSystem](codesystem.html): A use context type and value assigned to the code system\r\n* [CompartmentDefinition](compartmentdefinition.html): A use context type and value assigned to the compartment definition\r\n* [ConceptMap](conceptmap.html): A use context type and value assigned to the concept map\r\n* [GraphDefinition](graphdefinition.html): A use context type and value assigned to the graph definition\r\n* [ImplementationGuide](implementationguide.html): A use context type and value assigned to the implementation guide\r\n* [MessageDefinition](messagedefinition.html): A use context type and value assigned to the message definition\r\n* [NamingSystem](namingsystem.html): A use context type and value assigned to the naming system\r\n* [OperationDefinition](operationdefinition.html): A use context type and value assigned to the operation definition\r\n* [SearchParameter](searchparameter.html): A use context type and value assigned to the search parameter\r\n* [StructureDefinition](structuredefinition.html): A use context type and value assigned to the structure definition\r\n* [StructureMap](structuremap.html): A use context type and value assigned to the structure map\r\n* [TerminologyCapabilities](terminologycapabilities.html): A use context type and value assigned to the terminology capabilities\r\n* [ValueSet](valueset.html): A use context type and value assigned to the value set\r\n"
+                    },
+                    {
+                        "name": "depends-on",
+                        "in": "query",
+                        "type": "string",
+                        "description": "Identity of the IG that this depends on"
+                    },
+                    {
+                        "name": "experimental",
+                        "in": "query",
+                        "type": "string",
+                        "description": "For testing purposes, not real usage"
+                    },
+                    {
+                        "name": "global",
+                        "in": "query",
+                        "type": "string",
+                        "description": "Profile that all resources must conform to"
+                    },
+                    {
+                        "name": "resource",
+                        "in": "query",
+                        "type": "string",
+                        "description": "Location of the resource"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "schema": {
+                            "$ref": "#/definitions/Bundle"
+                        }
+                    },
+                    "400": {
+                        "description": "Unexpected Error",
+                        "schema": {
+                            "$ref": "#/definitions/OperationOutcome"
+                        }
+                    },
+                    "500": {
+                        "description": "Unexpected Error",
+                        "schema": {
+                            "$ref": "#/definitions/OperationOutcome"
+                        }
+                    },
+                    "default": {
+                        "description": "Unexpected Error",
+                        "schema": {
+                            "$ref": "#/definitions/OperationOutcome"
+                        }
+                    }
+                }
+            }
+        },
+        "/ImplementationGuide/{id}": {
+            "parameters": [
+                {
+                    "name": "id",
+                    "in": "path",
+                    "type": "string",
+                    "required": true
+                }
+            ],
+            "get": {
+                "tags": [
+                    "ImplementationGuide"
+                ],
+                "summary": "Retrieve ImplementationGuide by ID",
+                "description": "Retrieve ImplementationGuide by providing ID",
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "schema": {
+                            "$ref": "#/definitions/ImplementationGuide"
+                        }
+                    },
+                    "400": {
+                        "description": "Unexpected Error",
+                        "schema": {
+                            "$ref": "#/definitions/OperationOutcome"
+                        }
+                    },
+                    "500": {
+                        "description": "Unexpected Error",
+                        "schema": {
+                            "$ref": "#/definitions/OperationOutcome"
+                        }
+                    },
+                    "default": {
+                        "description": "Unexpected Error",
+                        "schema": {
+                            "$ref": "#/definitions/OperationOutcome"
+                        }
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "ImplementationGuide"
+                ],
+                "summary": "Update ImplementationGuide",
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "schema": {
+                            "$ref": "#/definitions/ImplementationGuide"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "schema": {
+                            "$ref": "#/definitions/ImplementationGuide"
+                        }
+                    },
+                    "400": {
+                        "description": "Unexpected Error",
+                        "schema": {
+                            "$ref": "#/definitions/OperationOutcome"
+                        }
+                    },
+                    "500": {
+                        "description": "Unexpected Error",
+                        "schema": {
+                            "$ref": "#/definitions/OperationOutcome"
+                        }
+                    },
+                    "default": {
+                        "description": "Unexpected Error",
+                        "schema": {
+                            "$ref": "#/definitions/OperationOutcome"
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "ImplementationGuide"
+                ],
+                "summary": "Remove ImplementationGuide by ID",
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "schema": {
+                            "$ref": "#/definitions/OperationOutcome"
+                        }
+                    },
+                    "400": {
+                        "description": "Unexpected Error",
+                        "schema": {
+                            "$ref": "#/definitions/OperationOutcome"
+                        }
+                    },
+                    "500": {
+                        "description": "Unexpected Error",
+                        "schema": {
+                            "$ref": "#/definitions/OperationOutcome"
+                        }
+                    },
+                    "default": {
+                        "description": "Unexpected Error",
+                        "schema": {
+                            "$ref": "#/definitions/OperationOutcome"
+                        }
+                    }
+                }
+            }
+        },
+        "/ImplementationGuide/_history": {
+            "get": {
+                "tags": [
+                    "ImplementationGuide"
+                ],
+                "summary": "Retrive ImplementationGuide History",
+                "description": "Retrieve ImplementationGuide History",
+                "parameters": [
+                    {
+                        "name": "_since",
+                        "in": "query",
+                        "type": "string"
+                    },
+                    {
+                        "name": "_count",
+                        "in": "query",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "schema": {
+                            "$ref": "#/definitions/Bundle"
+                        }
+                    },
+                    "400": {
+                        "description": "Unexpected Error",
+                        "schema": {
+                            "$ref": "#/definitions/OperationOutcome"
+                        }
+                    },
+                    "500": {
+                        "description": "Unexpected Error",
+                        "schema": {
+                            "$ref": "#/definitions/OperationOutcome"
+                        }
+                    },
+                    "default": {
+                        "description": "Unexpected Error",
+                        "schema": {
+                            "$ref": "#/definitions/OperationOutcome"
+                        }
+                    }
+                }
+            }
+        },
+        "/ImplementationGuide/{id}/_history": {
+            "get": {
+                "tags": [
+                    "ImplementationGuide"
+                ],
+                "summary": "Retrive ImplementationGuide History by ID",
+                "description": "Retrieve ImplementationGuide History by providing ID",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "type": "string",
+                        "required": true
+                    },
+                    {
+                        "name": "_since",
+                        "in": "query",
+                        "type": "string"
+                    },
+                    {
+                        "name": "_count",
+                        "in": "query",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "schema": {
+                            "$ref": "#/definitions/Bundle"
+                        }
+                    },
+                    "400": {
+                        "description": "Unexpected Error",
+                        "schema": {
+                            "$ref": "#/definitions/OperationOutcome"
+                        }
+                    },
+                    "500": {
+                        "description": "Unexpected Error",
+                        "schema": {
+                            "$ref": "#/definitions/OperationOutcome"
+                        }
+                    },
+                    "default": {
+                        "description": "Unexpected Error",
+                        "schema": {
+                            "$ref": "#/definitions/OperationOutcome"
+                        }
+                    }
+                }
+            }
+        },
+        "/ImplementationGuide/{id}/_history/{vid}": {
+            "get": {
+                "tags": [
+                    "ImplementationGuide"
+                ],
+                "summary": "Retrive ImplementationGuide History by ID and Version",
+                "description": "Retrieve ImplementationGuide History by providing ID and version",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "type": "string",
+                        "required": true
+                    },
+                    {
+                        "name": "vid",
+                        "in": "path",
+                        "type": "string",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "schema": {
+                            "$ref": "#/definitions/ImplementationGuide"
+                        }
+                    },
+                    "400": {
+                        "description": "Unexpected Error",
+                        "schema": {
+                            "$ref": "#/definitions/OperationOutcome"
+                        }
+                    },
+                    "500": {
+                        "description": "Unexpected Error",
+                        "schema": {
+                            "$ref": "#/definitions/OperationOutcome"
+                        }
+                    },
+                    "default": {
+                        "description": "Unexpected Error",
+                        "schema": {
+                            "$ref": "#/definitions/OperationOutcome"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "produces": [
+        "text/plain",
+        "application/json",
+        "application/fhir+json",
+        "application/json+fhir",
+        "text/json",
+        "application/xml",
+        "application/fhir+xml",
+        "application/xml+fhir",
+        "text/xml",
+        "text/xml+fhir",
+        "application/octet-stream"
+    ],
+    "securityDefinitions": {
+        "Bearer": {
+            "name": "Authorization",
+            "in": "header",
+            "type": "apiKey",
+            "description": "Authorization header using the Bearer scheme. Example :: 'Authorization: Bearer {token}'"
+        }
+    },
+    "security": [
+        {
+            "Bearer": []
+        }
+    ]
+}
